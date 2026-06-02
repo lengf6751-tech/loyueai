@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tianling Pavilion — Free Destiny Reading & Dream Decoding</title>
+<meta name="keywords" content="ziwei, bazi, qimen, chinese astrology, fortune telling, destiny reading, star chart, dream interpretation, zhougong, four pillars, eight characters, qimen dunjia">
+<link rel="canonical" href="https://loyueai.com/">
+<meta property="og:title" content="Tianling Pavilion - Five Arts Decode Your Destiny & Dreams">
+<meta property="og:description" content="Ziwei, Bazi, Qimen - three ancient arts cross-validated by five divine masters. Plus Zhou Gong dream interpretation. Real star charts, not vague fortunes.">
+<meta property="og:image" content="https://loyueai.com/images/og_share.jpg">
+<meta property="og:url" content="https://loyueai.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tianling Pavilion">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tianling Pavilion - Five Arts Decode Your Destiny & Dreams">
+<meta name="twitter:description" content="Ziwei, Bazi, Qimen - three ancient arts cross-validated by five divine masters. Plus Zhou Gong dream interpretation.">
+<meta name="twitter:image" content="https://loyueai.com/images/og_share.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Tianling Pavilion","url":"https://loyueai.com/","description":"Ziwei, Bazi, Qimen - three ancient arts cross-validated by five divine masters. Real star charts, not vague fortunes.","logo":"https://loyueai.com/logo.png"}</script>
+<script>
+// === 梦境词库 ===
+var dreamDB=[
+  {name:"Snake",icon:"🐍",cat:"Animals",luck:"Bad Luck",brief:"Hidden fears or transformation approaching"},
+  {name:"Dog",icon:"🐕",cat:"Animals",luck:"Good Luck",brief:"Loyal friendship, protection, good news"},
+  {name:"Cat",icon:"🐈",cat:"Animals",luck:"Neutral",brief:"Independence, intuition, feminine energy"},
+  {name:"Fish",icon:"🐟",cat:"Animals",luck:"Good Luck",brief:"Wealth, abundance, emotional depth"},
+  {name:"Bird",icon:"🐦",cat:"Animals",luck:"Good Luck",brief:"Freedom, aspiration, messages from above"},
+  {name:"Horse",icon:"🐴",cat:"Animals",luck:"Good Luck",brief:"Strength, career progress, unstoppable drive"},
+  {name:"Tiger",icon:"🐯",cat:"Animals",luck:"Bad Luck",brief:"Powerful adversary or inner courage rising"},
+  {name:"Mouse",icon:"🐭",cat:"Animals",luck:"Bad Luck",brief:"Petty troubles, hidden theft, minor losses"},
+  {name:"Dead Person",icon:"💀",cat:"People",luck:"Neutral",brief:"Endings, transitions, messages from the past"},
+  {name:"Crush",icon:"💕",cat:"People",luck:"Good Luck",brief:"Unspoken desires surfacing, romantic hope"},
+  {name:"Ex",icon:"👤",cat:"People",luck:"Neutral",brief:"Unresolved feelings, closure seeking"},
+  {name:"Parents",icon:"👨‍👩‍👧",cat:"People",luck:"Good Luck",brief:"Guidance, protection, ancestral blessings"},
+  {name:"Baby",icon:"👶",cat:"People",luck:"Good Luck",brief:"New beginnings, innocence, creative birth"},
+  {name:"Stranger",icon:"🕴️",cat:"People",luck:"Neutral",brief:"Unknown aspect of self, upcoming encounter"},
+  {name:"Water",icon:"💧",cat:"Nature",luck:"Neutral",brief:"Emotions, subconscious, cleansing or drowning"},
+  {name:"Fire",icon:"🔥",cat:"Nature",luck:"Bad Luck",brief:"Anger, passion, destruction or transformation"},
+  {name:"Storm",icon:"⛈️",cat:"Nature",luck:"Bad Luck",brief:"Emotional turmoil, major life disruption"},
+  {name:"Sky",icon:"🌌",cat:"Nature",luck:"Good Luck",brief:"Infinite possibility, spiritual elevation"},
+  {name:"Moon",icon:"🌙",cat:"Nature",luck:"Good Luck",brief:"Feminine mystery, intuition, romantic longing"},
+  {name:"Earthquake",icon:"🏚️",cat:"Nature",luck:"Bad Luck",brief:"Foundation shaking, major life change ahead"},
+  {name:"Teeth Falling",icon:"🦷",cat:"Daily Life",luck:"Bad Luck",brief:"Anxiety about appearance, loss, or aging"},
+  {name:"Exam",icon:"📝",cat:"Daily Life",luck:"Neutral",brief:"Self-evaluation, fear of judgment, preparation"},
+  {name:"Wedding",icon:"💒",cat:"Daily Life",luck:"Good Luck",brief:"Union, commitment, new life chapter"},
+  {name:"Pregnancy",icon:"🤰",cat:"Daily Life",luck:"Good Luck",brief:"Creative gestation, new project or idea forming"},
+  {name:"Naked",icon:"🫣",cat:"Daily Life",luck:"Neutral",brief:"Vulnerability, shame, or desire for authenticity"},
+  {name:"Lost",icon:"🧭",cat:"Daily Life",luck:"Bad Luck",brief:"Directionless, confusion about life path"},
+  {name:"Flying",icon:"🕊️",cat:"Activities",luck:"Good Luck",brief:"Liberation, ambition, transcending limitations"},
+  {name:"Falling",icon:"🪂",cat:"Activities",luck:"Bad Luck",brief:"Loss of control, fear of failure, insecurity"},
+  {name:"Running",icon:"🏃",cat:"Activities",luck:"Neutral",brief:"Escaping or pursuing — depends on direction"},
+  {name:"Swimming",icon:"🏊",cat:"Activities",luck:"Good Luck",brief:"Navigating emotions with grace and ease"},
+  {name:"Fighting",icon:"🥊",cat:"Activities",luck:"Bad Luck",brief:"Inner conflict, suppressed anger, power struggle"},
+  {name:"Ghost",icon:"👻",cat:"Supernatural",luck:"Bad Luck",brief:"Unresolved past, guilt, or fear of the unknown"},
+  {name:"Sleep Paralysis",icon:"😰",cat:"Supernatural",luck:"Bad Luck",brief:"Feeling trapped, helplessness, stress overload"},
+  {name:"Zombie",icon:"🧟",cat:"Supernatural",luck:"Bad Luck",brief:"Mindlessness, conformity fears, emotional numbness"},
+  {name:"Deity",icon:"✨",cat:"Supernatural",luck:"Good Luck",brief:"Divine guidance, spiritual awakening, blessing"},
+  {name:"Car",icon:"🚗",cat:"Objects",luck:"Neutral",brief:"Life direction, control, journey ahead"},
+  {name:"Money",icon:"💰",cat:"Objects",luck:"Good Luck",brief:"Self-worth, prosperity, value recognition"},
+  {name:"Phone",icon:"📱",cat:"Objects",luck:"Neutral",brief:"Communication, connection, missed messages"},
+  {name:"Key",icon:"🗝️",cat:"Objects",luck:"Good Luck",brief:"Solution found, access to hidden knowledge"},
+  {name:"Mirror",icon:"🪞",cat:"Objects",luck:"Neutral",brief:"Self-reflection, truth, confronting reality"},
+  {name:"House",icon:"🏠",cat:"Buildings",luck:"Good Luck",brief:"Self, security, family foundation"},
+  {name:"Stairs",icon:"🪜",cat:"Buildings",luck:"Neutral",brief:"Ascending or descending — career or spirit path"},
+  {name:"Door",icon:"🚪",cat:"Buildings",luck:"Good Luck",brief:"New opportunity, threshold of change"},
+  {name:"Elevator",icon:"🛗",cat:"Buildings",luck:"Neutral",brief:"Rapid rise or fall — unstable momentum"},
+  {name:"Flower",icon:"🌸",cat:"Plants",luck:"Good Luck",brief:"Beauty, romance, blooming potential"},
+  {name:"Tree",icon:"🌳",cat:"Plants",luck:"Good Luck",brief:"Growth, stability, deep roots and legacy"},
+  {name:"Fruit",icon:"🍎",cat:"Plants",luck:"Good Luck",brief:"Harvest, reward for patience, sweet outcomes"},
+  {name:"Blood",icon:"🩸",cat:"Daily Life",luck:"Bad Luck",brief:"Life force draining, sacrifice, deep wound"},
+  {name:"Death",icon:"⚰️",cat:"People",luck:"Neutral",brief:"Rebirth, major ending, transformation"},
+  {name:"Spider",icon:"🕷️",cat:"Animals",luck:"Neutral",brief:"Patience, creativity, weaving your destiny"}
+];
+
+var dreamCats=["All","Animals","People","Nature","Daily Life","Activities","Supernatural","Objects","Buildings","Plants"];
+var dreamHot=["Snake","Teeth Falling","Flying","Dead Person","Ghost","Dog","Exam","Wedding","Water","Fire","Falling","Money"];
+var dreamActiveCat="全部";
+
+function renderDreamTags(){
+  var h=document.getElementById("dreamHotTags");
+  if(!h)return;
+  h.innerHTML=dreamHot.map(function(t){
+    var d=dreamDB.find(function(x){return x.name===t});
+    var icon=d?d.icon:"";
+    return '<span class="dream-hot-tag" onclick="selectDreamHot(\''+t+'\')">'+icon+' '+t+'</span>';
+  }).join("");
+}
+
+function renderDreamCats(){
+  var c=document.getElementById("dreamCats");
+  if(!c)return;
+  c.innerHTML=dreamCats.map(function(cat){
+    return '<span class="dream-cat'+(cat===dreamActiveCat?" active":"")+'" onclick="filterDreamCat(\''+cat+'\')">'+cat+'</span>';
+  }).join("");
+}
+
+function renderDreamDict(){
+  var d=document.getElementById("dreamDict");
+  if(!d)return;
+  var items=dreamDB;
+  if(dreamActiveCat!=="All") items=dreamDB.filter(function(x){return x.cat===dreamActiveCat});
+  d.innerHTML=items.map(function(x){
+    var lk=x.luck==="Good Luck"?"ji":x.luck==="Bad Luck"?"xiong":"ping";
+    return '<div class="dream-card" onclick="selectDreamTag(\''+x.name+'\')"><span class="dc-icon">'+x.icon+'</span><div class="dc-info"><div class="dc-name">'+x.name+'</div><div class="dc-brief">'+x.brief+'</div></div><span class="dc-luck '+lk+'">'+x.luck+'</span></div>';
+  }).join("");
+}
+
+function selectDreamHot(t){
+  var d=dreamDB.find(function(x){return x.name===t});
+  if(!d)return;
+  selectDreamTag(d.name);
+}
+
+function selectDreamTag(name){
+  var d=dreamDB.find(function(x){return x.name===name});
+  if(!d)return;
+  document.getElementById("dreamInputSection").style.display="none";
+  document.getElementById("dreamDict").style.display="none";
+  document.getElementById("dreamCats").style.display="none";
+  document.getElementById("dreamHotTags").style.display="none";
+  document.querySelector("#modal-dream .dream-subtitle").style.display="none";
+  document.getElementById("dreamLoading").style.display="block";
+  document.getElementById("dreamText").value="I dreamed about "+d.name.toLowerCase()+". "+d.brief;
+  document.querySelector("#modal-dream .modal").scrollTop=0;
+  fetch("/api/dream",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({dream:document.getElementById("dreamText").value,dreamSymbol:d.name})})
+  .then(function(r){return r.json()})
+  .then(function(data){
+    document.getElementById("dreamLoading").style.display="none";
+    document.getElementById("dreamResultScreen").style.display="block";
+    var html='<div class="result-section"><h5>'+d.icon+' '+d.name+' — Zhou Gong says: <span class="gold">'+d.luck+'</span></h5><p>'+(data.interpretation||data.reading||"Your dream has been decoded.").replace(/\n/g,"<br>")+"</p></div>";
+    document.getElementById("dreamResultContent").innerHTML=html;
+  })
+  .catch(function(e){
+    document.getElementById("dreamLoading").style.display="none";
+    document.getElementById("dreamInputSection").style.display="block";
+    document.getElementById("dreamDict").style.display="grid";
+    document.getElementById("dreamCats").style.display="flex";
+    document.getElementById("dreamHotTags").style.display="flex";
+    document.querySelector("#modal-dream .dream-subtitle").style.display="block";
+  });
+}
+
+function filterDreamCat(cat){
+  dreamActiveCat=cat;
+  renderDreamCats();
+  renderDreamDict();
+}
+
+function openModalDream(){
+  openModal("dream");
+  setTimeout(function(){
+    renderDreamTags();
+    renderDreamCats();
+    renderDreamDict();
+  },100);
+}
+
+function resetDream(){
+  document.getElementById("dreamInputSection").style.display="block";
+  document.getElementById("dreamDict").style.display="grid";
+  document.getElementById("dreamCats").style.display="flex";
+  document.getElementById("dreamHotTags").style.display="flex";
+  document.querySelector("#modal-dream .dream-subtitle").style.display="block";
+  document.getElementById("dreamLoading").style.display="none";
+  document.getElementById("dreamResultScreen").style.display="none";
+  document.getElementById("dreamText").value="";
+  renderDreamDict();
+}
+
+function submitDream(){
+  var dream=document.getElementById('dreamText').value.trim();
+  if(!dream)return;
+  document.getElementById('dreamInputSection').style.display='none';
+  document.getElementById('dreamLoading').style.display='block';
+  fetch('/api/dream',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({dream:dream})})
+  .then(function(r){return r.json()})
+  .then(function(d){
+    document.getElementById('dreamLoading').style.display='none';
+    document.getElementById('dreamResultScreen').style.display='block';
+    document.getElementById('dreamResultContent').innerHTML='<div class="result-section"><h5>Dream Interpretation</h5><p>'+(d.interpretation||d.reading||'Your dream has been decoded.').replace(/\n/g,'<br>')+'</p></div>';
+  })
+  .catch(function(e){
+    document.getElementById('dreamLoading').style.display='none';
+    document.getElementById('dreamInputSection').style.display='block';
+  });
+}
+
+</script>
+
+
+<meta name="description" content="Ziwei, Bazi, Qimen - three ancient arts cross-validated by five divine masters and Duke of Zhou dream oracle. Real star charts, not vague fortunes.">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+:root{--bg:#06060c;--card-bg:rgba(201,169,110,0.03);--gold:#c9a96e;--gold-light:#d4a574;--gold-dim:rgba(201,169,110,0.12);--text:#e8e0d5;--text-dim:#8a8278}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,sans-serif;line-height:1.7;overflow-x:hidden}
+
+h1,h2,h3,.serif{font-family:'Noto Serif SC',serif}
+
+html{scroll-behavior:smooth}
+
+::-webkit-scrollbar{width:4px}
+
+::-webkit-scrollbar-track{background:var(--bg)}
+
+::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px}
+
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold-light));z-index:200;transition:width .1s}
+
+#particles{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+nav{position:fixed;top:0;width:100%;background:rgba(6,6,12,.94);border-bottom:1px solid var(--gold-dim);z-index:100;transition:transform .4s}
+
+nav.hidden{transform:translateY(-100%)}
+
+.nav-inner{max-width:1200px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;justify-content:space-between}
+
+.logo{font-family:'Noto Serif SC',serif;font-size:20px;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;display:flex;align-items:center;gap:10px}
+
+.logo img{height:28px;width:28px;object-fit:contain}
+
+.nav-links{display:flex;gap:8px}
+
+.nav-links a{padding:6px 16px;border-radius:10px;font-size:13px;text-decoration:none;color:var(--text-dim);transition:all .3s}
+
+.nav-links a:hover{color:var(--gold);background:var(--card-bg)}
+
+section{position:relative;z-index:1}
+
+.inner{max-width:1100px;margin:0 auto;padding:60px 24px}
+
+.hero{min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(201,169,110,0.06) 0%,transparent 60%),radial-gradient(ellipse at 80% 80%,rgba(196,30,58,0.03) 0%,transparent 50%);z-index:0}
+
+.hero-content{position:relative;z-index:1;max-width:800px;padding:0 24px}
+
+.hero-badge{display:inline-block;padding:8px 24px;border:1px solid rgba(201,169,110,.35);border-radius:24px;font-size:13px;color:var(--gold);background:rgba(201,169,110,.06);margin-bottom:28px;letter-spacing:2px}
+
+.hero h1{font-size:clamp(36px,6vw,64px);font-weight:900;line-height:1.15;margin-bottom:16px}
+
+.hero h1 .gold{background:linear-gradient(135deg,var(--gold),var(--gold-light),var(--gold),var(--gold-light));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s linear infinite}
+
+@keyframes shimmer{to{background-position:200% center}}
+
+.hero .cn{font-family:'Noto Serif SC',serif;font-size:clamp(20px,3vw,28px);color:var(--text-dim);margin-bottom:24px;letter-spacing:6px}
+
+.hero .sub{font-size:clamp(15px,2.5vw,18px);color:var(--text-dim);max-width:620px;margin:0 auto 12px}
+
+.hero .sub em{font-style:normal;color:var(--gold)}
+
+.hero .usp{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin:28px 0 36px}
+
+.hero .usp span{font-size:13px;color:var(--text-dim);display:flex;align-items:center;gap:8px}
+
+.hero .usp span::before{content:'\25C6';color:var(--gold);font-size:8px}
+
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+.btn{display:inline-block;padding:14px 36px;border-radius:12px;font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;transition:all .3s;position:relative;overflow:hidden;border:none}
+
+.btn-gold{background:linear-gradient(135deg,#c9a96e,#a07830);color:#06060c;box-shadow:0 4px 30px rgba(201,169,110,.25)}
+
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 12px 45px rgba(201,169,110,.45)}
+
+.btn-outline{color:var(--gold);border:1px solid rgba(201,169,110,.25);background:transparent}
+
+.btn-outline:hover{background:var(--card-bg);border-color:var(--gold)}
+
+.section-label{text-align:center;font-size:12px;letter-spacing:6px;color:var(--gold);margin-bottom:12px;text-transform:uppercase;opacity:.7}
+
+.section-title{text-align:center;font-family:'Noto Serif SC',serif;font-size:clamp(24px,4vw,36px);font-weight:700;margin-bottom:12px}
+
+.section-title .gold{color:var(--gold)}
+
+.section-sub{text-align:center;color:var(--text-dim);font-size:15px;max-width:600px;margin:0 auto 60px}
+
+.masters{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+
+.master-card{background:var(--card-bg);border:1px solid var(--gold-dim);border-radius:16px;overflow:hidden;text-align:center;transition:all .4s}
+
+.master-card:hover{transform:translateY(-8px);border-color:rgba(201,169,110,.3);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+
+.master-card .avatar{width:100%;aspect-ratio:4/5;overflow:hidden}
+
+.master-card .avatar video{width:100%;height:100%;object-fit:cover}
+
+.master-card .info{padding:24px 20px 28px}
+
+.master-card h3{font-family:'Noto Serif SC',serif;font-size:19px;margin-bottom:2px}
+
+.master-card .cn-name{font-size:13px;color:var(--text-dim);margin-bottom:4px}
+
+.master-card .role{color:var(--gold);font-size:13px;margin-bottom:10px;font-weight:600}
+
+.master-card .tagline{color:var(--text-dim);font-size:13px;line-height:1.6;margin-bottom:10px}
+.master-card .desc{color:var(--text-dim);font-size:12px;line-height:1.6;margin-bottom:10px}
+
+.master-card .quote{font-size:12px;color:var(--text-dim);opacity:.5;font-style:italic}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pricing-price span{font-size:16px;color:var(--text-dim);font-weight:400}
+
+
+
+
+
+.pricing-features li::before{content:'\2713';color:var(--gold);font-weight:700;font-size:16px}
+
+
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+
+.step{text-align:center;padding:36px 22px;background:var(--card-bg);border:1px solid var(--gold-dim);border-radius:16px;transition:all .3s}
+
+.step:hover{border-color:rgba(201,169,110,.3);transform:translateY(-4px)}
+
+.step-num{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#a07830);color:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif SC',serif;font-size:20px;font-weight:900;margin:0 auto 18px}
+
+.step h4{font-family:'Noto Serif SC',serif;font-size:17px;margin-bottom:8px}
+
+.step p{color:var(--text-dim);font-size:13px;line-height:1.7}
+
+.report-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+
+.report-item{background:var(--card-bg);border:1px solid var(--gold-dim);border-radius:16px;padding:30px 22px;text-align:center;transition:all .3s}
+
+.report-item:hover{border-color:rgba(201,169,110,.3)}
+
+.report-icon{font-size:32px;margin-bottom:14px;color:var(--gold)}
+
+.report-item h4{font-family:'Noto Serif SC',serif;font-size:16px;margin-bottom:8px}
+
+.report-item p{color:var(--text-dim);font-size:13px;line-height:1.6}
+
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+
+.trust-card{background:var(--card-bg);border:1px solid var(--gold-dim);border-radius:16px;padding:32px 26px;transition:all .3s}
+
+.trust-card:hover{border-color:rgba(201,169,110,.3)}
+
+.trust-card .icon{font-size:26px;margin-bottom:14px;color:var(--gold)}
+
+.trust-card h4{font-family:'Noto Serif SC',serif;font-size:17px;margin-bottom:10px;color:var(--gold)}
+
+.trust-card p{color:var(--text-dim);font-size:14px;line-height:1.7}
+
+.faq{margin-top:24px}
+
+.faq-item{border-bottom:1px solid var(--gold-dim);padding:22px 0;cursor:pointer}
+
+.faq-q{font-family:'Noto Serif SC',serif;font-size:16px;display:flex;justify-content:space-between;align-items:center;transition:color .3s}
+
+.faq-q:hover{color:var(--gold)}
+
+.faq-q::after{content:'+';font-size:22px;color:var(--gold-dim);transition:transform .3s}
+
+.faq-item.open .faq-q::after{content:'\2212';transform:rotate(180deg)}
+
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;color:var(--text-dim);font-size:14px;line-height:1.7}
+
+.faq-item.open .faq-a{max-height:300px;padding-top:12px}
+
+.cta{text-align:center;padding:60px 24px;position:relative}
+
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,169,110,.06) 0%,transparent 60%);z-index:0}
+
+.cta>*{position:relative;z-index:1}
+
+.cta h2{font-size:clamp(28px,5vw,42px);font-weight:900;margin-bottom:16px}
+
+.cta p{color:var(--text-dim);font-size:15px;margin-bottom:32px}
+
+footer{text-align:center;padding:56px 24px;border-top:1px solid var(--gold-dim);color:var(--text-dim);font-size:13px}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:300;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+
+.modal-overlay.active{opacity:1;pointer-events:all}
+
+.modal{background:linear-gradient(180deg,#0e0e18,#06060c);border:1px solid var(--gold-dim);border-radius:20px;padding:40px;max-width:600px;width:92%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.6)}
+
+.modal-close{position:absolute;top:16px;right:20px;font-size:28px;color:var(--text-dim);cursor:pointer;background:none;border:none;transition:color .3s;z-index:10}
+
+.modal-close:hover{color:var(--gold)}
+
+.modal h3{font-family:'Noto Serif SC',serif;font-size:24px;text-align:center;margin-bottom:24px}
+
+.modal h3 .gold{color:var(--gold)}
+
+.form-step{display:none}
+
+.form-step.active{display:block}
+
+.form-group{margin-bottom:20px}
+
+.form-group label{display:block;font-size:13px;color:var(--gold);margin-bottom:6px;letter-spacing:1px}
+
+.form-group input,.form-group select{width:100%;padding:12px 16px;background:rgba(255,255,255,.04);border:1px solid var(--gold-dim);border-radius:10px;color:var(--text);font-size:15px;outline:none;transition:border-color .3s}
+
+.form-group input:focus,.form-group select:focus{border-color:var(--gold)}
+
+.form-group select option{background:#0e0e18;color:var(--text)}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.focus-options{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.focus-opt{padding:16px;background:rgba(255,255,255,.03);border:1px solid var(--gold-dim);border-radius:12px;text-align:center;cursor:pointer;transition:all .3s;color:var(--text-dim);font-size:14px}
+
+.focus-opt:hover{border-color:var(--gold);color:var(--gold)}
+
+.focus-opt.selected{border-color:var(--gold);background:rgba(201,169,110,.08);color:var(--gold);font-weight:600}
+
+.service-split{display:flex;flex-direction:column;gap:40px;max-width:1100px;margin:0 auto;padding:0 24px}
+.service-card{display:flex;gap:40px;background:var(--card-bg);border:1px solid var(--gold-dim);border-radius:20px;overflow:hidden;transition:all .4s;align-items:center}
+.service-image{flex:0 0 360px;height:320px;overflow:hidden;position:relative}
+.service-image img{width:100%;height:100%;object-fit:cover;display:block}
+.service-card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+
+
+.dream-placeholder span{color:#a899d4}
+.image-placeholder small{font-size:13px;color:var(--text-dim)}
+.service-body{flex:1;padding:40px 40px 40px 0}
+.service-label{font-size:11px;letter-spacing:4px;color:var(--gold);margin-bottom:8px;opacity:.7}
+.service-title{font-family:'Noto Serif SC',serif;font-size:clamp(22px,3vw,32px);font-weight:700;margin-bottom:12px;color:var(--text)}
+.service-title .gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.service-desc{color:var(--text-dim);font-size:14px;margin-bottom:20px;line-height:1.7}
+.service-features{list-style:none;margin-bottom:24px}
+.service-features li{padding:6px 0;font-size:14px;color:var(--text-dim);display:flex;align-items:center;gap:10px}
+.service-features li::before{content:'\25C6';color:var(--gold);font-size:8px}
+.dream-card .service-features li::before{color:#a899d4}
+.service-img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:768px){.service-card{flex-direction:column}.service-body{padding:24px}}
+
+.dream-group{margin-top:12px}.dream-group label{color:var(--gold);font-size:13px}.dream-textarea{width:100%;padding:12px 16px;background:rgba(201,169,110,.04);border:1px solid var(--gold-dim);border-radius:10px;color:var(--text);font-size:13px;resize:vertical;font-family:inherit;transition:all .3s;box-sizing:border-box}.dream-textarea:focus{outline:none;border-color:var(--gold);background:rgba(201,169,110,.07)}.dream-textarea::placeholder{color:var(--text-dim);opacity:.5}
+
+.form-nav{display:flex;gap:12px;justify-content:center;margin-top:28px}
+
+
+
+/* Loading */
+
+.loading-screen{display:none;text-align:center;padding:20px 0}
+
+.loading-screen.active{display:block}
+
+.loading-pulse{position:relative;width:100px;height:100px;margin:0 auto 28px}
+
+.loading-pulse .core{position:absolute;inset:20px;background:var(--gold);border-radius:50%;animation:coreBeat 1.5s ease infinite}
+
+@keyframes coreBeat{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.3);opacity:1}}
+
+.loading-ring{position:absolute;inset:0;border:1px solid var(--gold-dim);border-radius:50%;animation:ringPulse 2s ease infinite}
+
+.loading-ring:nth-child(3){inset:-8px;animation-delay:.5s;border-color:rgba(201,169,110,.15)}
+
+.loading-ring:nth-child(4){inset:-16px;animation-delay:1s;border-color:rgba(201,169,110,.08)}
+
+@keyframes ringPulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
+
+.loading-masters{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+.loading-master{text-align:center;transition:all .6s}
+
+.loading-master .avatar-dot{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#a07830);margin:0 auto 6px;transition:all .5s}
+
+.loading-master.active .avatar-dot{box-shadow:0 0 30px rgba(201,169,110,.6);transform:scale(1.15)}
+
+.loading-master.done .avatar-dot{background:var(--gold);box-shadow:0 0 20px rgba(201,169,110,.4)}
+
+.loading-master .name{font-size:10px;color:var(--text-dim);font-family:'Noto Serif SC',serif;transition:color .5s}
+
+.loading-master.done .name{color:var(--gold)}
+
+.loading-status{font-family:'Noto Serif SC',serif;font-size:15px;color:var(--gold);margin-top:20px;min-height:24px}
+
+
+
+/* Result */
+
+.result-screen{display:none}
+
+.result-screen.active{display:block}
+
+.result-section{margin-bottom:24px;background:rgba(255,255,255,.02);border:1px solid var(--gold-dim);border-radius:12px;padding:20px}
+
+.result-section h5{font-family:'Noto Serif SC',serif;color:var(--gold);font-size:14px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+
+.result-section p{color:var(--text-dim);font-size:13px;line-height:1.8}
+
+
+
+.sample-badge{display:inline-block;padding:3px 10px;background:rgba(201,169,110,.1);border:1px solid var(--gold-dim);border-radius:10px;font-size:11px;color:var(--gold);margin:2px}
+
+.fade-up{opacity:1;transform:translateY(30px);transition:all .8s ease}
+
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+
+  .nav-links{display:none}
+
+  .hero h1{font-size:32px}
+
+  .hero .usp{flex-direction:column;gap:10px;align-items:center}
+
+  .hero-actions{flex-direction:column;align-items:center}
+
+  .masters{grid-template-columns:1fr}
+
+  
+
+  .form-row{grid-template-columns:1fr}
+
+  .focus-options{grid-template-columns:1fr}
+
+}
+
+
+.master-avatar-img{width:100%;height:100%;object-fit:cover}
+.dream-master .avatar{background:linear-gradient(135deg,rgba(120,100,180,.15),rgba(60,40,120,.1))}
+
+.blog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.blog-img{width:100%;aspect-ratio:16/9;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.blog-img img{width:100%;height:100%;object-fit:cover}
+.blog-card{background:var(--card-bg);border:1px solid var(--gold-dim);border-radius:16px;overflow:hidden;text-decoration:none;transition:all .3s;display:block}
+.blog-card:hover{transform:translateY(-4px);border-color:var(--gold)}
+.blog-thumb{width:100%;aspect-ratio:16/10;overflow:hidden;background:rgba(201,169,110,0.05)}
+.blog-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.blog-card:hover .blog-thumb img{transform:scale(1.05)}
+.blog-info{padding:16px}
+.blog-info h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.4}
+.blog-info p{font-size:12px;color:var(--text-dim);line-height:1.5}
+@media(max-width:900px){.blog-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.blog-grid{grid-template-columns:1fr}}
+
+
+.service-body{flex:1;padding:40px 48px 40px 0}
+.service-label{font-size:11px;letter-spacing:4px;color:var(--gold);margin-bottom:12px;opacity:.7;text-transform:uppercase}
+.service-title{font-family:'Noto Serif SC',serif;font-size:32px;font-weight:700;margin-bottom:12px;color:var(--text)}
+.service-desc{color:var(--text-dim);font-size:15px;margin-bottom:20px;line-height:1.7}
+.service-features{list-style:none;margin-bottom:24px;display:flex;flex-wrap:wrap;gap:10px 24px}
+.service-features li{padding:4px 0;font-size:13px;color:var(--text-dim)}
+.service-features li::before{content:'';display:inline-block;width:6px;height:6px;background:var(--gold);margin-right:10px;transform:rotate(45deg)}
+.service-cta{margin-top:8px}
+/* --- Master Oracle 焦点预览 --- */
+.focus-preview-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.focus-preview{display:inline-block;padding:5px 12px;border-radius:16px;font-size:12px;cursor:pointer;transition:all .2s;border:1px solid var(--gold-dim);color:var(--text-dim);background:rgba(201,169,110,.03)}
+.focus-preview:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,169,110,.08)}
+
+@media(max-width:768px){.service-card{flex-direction:column}.service-body{padding:24px}}
+
+
+#modal-dream .dream-textarea{width:100%;background:rgba(201,169,110,0.05);border:1px solid var(--gold-dim);border-radius:8px;padding:14px;color:var(--text);font-size:14px;resize:vertical;min-height:100px;font-family:inherit}
+#modal-dream .loading-pulse{display:flex;align-items:center;justify-content:center;gap:12px;padding:40px 0}
+#modal-dream .pulse-ring{width:12px;height:12px;border-radius:50%;background:var(--gold);animation:pulse 1.4s ease-in-out infinite}
+#modal-dream .pulse-ring.delay-1{animation-delay:.2s}
+#modal-dream .pulse-ring.delay-2{animation-delay:.4s}
+#modal-dream .loading-status{text-align:center;color:var(--text-dim);font-size:14px}
+/* --- Dream Oracle 词库样式 --- */
+.dream-wide{max-width:780px!important}
+.dream-subtitle{color:var(--text-dim);font-size:13px;margin-top:-4px;margin-bottom:14px}
+.dream-hot-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.dream-hot-tag{display:inline-block;padding:6px 14px;border-radius:20px;font-size:13px;cursor:pointer;transition:all .2s;border:1px solid var(--gold-dim);color:var(--text-dim);background:rgba(201,169,110,.04)}
+.dream-hot-tag:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,169,110,.1)}
+.dream-hot-tag.selected{background:var(--gold);color:#06060c;border-color:var(--gold);font-weight:600}
+.dream-cats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--gold-dim)}
+.dream-cat{display:inline-block;padding:4px 12px;border-radius:14px;font-size:12px;cursor:pointer;transition:all .2s;color:var(--text-dim);background:transparent;border:1px solid transparent}
+.dream-cat:hover{color:var(--text)}
+.dream-cat.active{background:var(--gold-dim);color:var(--gold);font-weight:600;border-color:var(--gold-dim)}
+.dream-dict{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-height:240px;overflow-y:auto;margin-bottom:4px;padding-right:4px}
+.dream-dict::-webkit-scrollbar{width:3px}
+.dream-dict::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:3px}
+.dream-card{border:1px solid var(--gold-dim);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .2s;background:rgba(201,169,110,.02);display:flex;align-items:center;gap:8px}
+.dream-card:hover{border-color:var(--gold);background:rgba(201,169,110,.06)}
+.dream-card .dc-icon{font-size:18px;flex-shrink:0}
+.dream-card .dc-info{min-width:0}
+.dream-card .dc-name{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dream-card .dc-brief{font-size:11px;color:var(--text-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dream-card .dc-luck{font-size:11px;padding:1px 7px;border-radius:10px;font-weight:600;flex-shrink:0}
+.dc-luck.ji{background:rgba(76,175,80,.15);color:#4caf50}
+.dc-luck.xiong{background:rgba(244,67,54,.15);color:#f44336}
+.dc-luck.ping{background:rgba(158,158,158,.15);color:#9e9e9e}
+@media(max-width:600px){.dream-dict{grid-template-columns:repeat(2,1fr)}.dream-wide{max-width:95vw!important}}
+
+</style>
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4082714714379659" crossorigin="anonymous"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c7dc3bb765d34f863aee911f1811c468";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<div id="scroll-progress"></div>
+
+<nav id="nav"><div class="nav-inner">
+
+  <a href="#" class="logo"><img src="/images/logo-nav.png" alt="">Tianling Pavilion</a>
+
+  <div class="nav-links">
+
+    <a href="#masters">Masters</a><a href="#blog">Blog</a><a href="#process">Process</a><a href="#report">Report</a><a href="#why">Why Us</a><a href="#faq">FAQ</a>
+
+  </div>
+
+</div></nav>
+
+
+
+<section class="hero"><div class="hero-content">
+
+  <div class="hero-badge fade-up">Ancient Wisdom &times; Modern AI</div>
+
+  <h1 class="fade-up">Five Masters.<br><span class="gold">One Divine Reading.</span></h1>
+
+  <p class="cn fade-up">天灵阁 · 五圣合参</p>
+
+  <p class="sub fade-up">Five legendary masters simultaneously read your destiny.<br>One complete oracle delivered in <em>under 10 minutes</em>.</p>
+
+  <p class="sub fade-up" style="font-size:14px"><em>Ziwei Astrology · Bazi Four Pillars · Qimen Dunjia</em><br>Three ancient systems cross-validated. Plain-language synthesis by the Scribe.</p>
+
+  <div class="usp fade-up"><span>Real star chart calculation</span><span>Five independent readings</span><span>Results in seconds</span><span>Cross-validated consensus</span></div>
+
+  <div class="hero-actions fade-up">
+
+    <a href="#" class="btn btn-gold" onclick="openModal('form');return false">Generate My Free Reading</a>
+
+    <a href="#" class="btn btn-outline" onclick="openModal('sample');return false">View Sample Report</a>
+
+  </div>
+
+</div></section>
+
+<section id="services"><div class="service-split">
+<div class="service-card fade-up">
+<div class="service-image"><img src="/images/master_ziwei.png" alt="Fortune Oracle" style="width:100%;height:100%;object-fit:cover" loading="lazy"></div>
+<div class="service-body">
+<div class="service-label">DESTINY READING</div>
+<h2 class="service-title">Master Oracle</h2>
+<p class="service-desc">Five legendary sages read your destiny simultaneously. Ziwei star chart, Bazi pillars, and Qimen strategy — cross-validated into one complete oracle.</p>
+<ul class="service-features"><li>Ziwei Dou Shu — 12 Palaces Life Chart</li><li>Bazi Four Pillars — Elemental & Fortune Curve</li><li>Qimen Dunjia — Strategic Direction</li><li>Scribe Synthesis — Unified Oracle Report</li></ul>
+<div class="focus-preview-row">
+<span class="focus-preview" onclick="openModal('form');document.getElementById('birthYear').focus()">💼 Career</span>
+<span class="focus-preview" onclick="openModal('form');document.getElementById('birthYear').focus()">💰 Wealth</span>
+<span class="focus-preview" onclick="openModal('form');document.getElementById('birthYear').focus()">💕 Love</span>
+<span class="focus-preview" onclick="openModal('form');document.getElementById('birthYear').focus()">❤️ Health</span>
+<span class="focus-preview" onclick="openModal('form');document.getElementById('birthYear').focus()">🔮 Life Path</span>
+</div>
+<div class="service-cta"><a href="javascript:void(0)" class="btn btn-gold" onclick="openModal('form');return false">Generate My Free Reading</a></div>
+</div>
+</div>
+<div class="service-card fade-up">
+<div class="service-image"><img src="/images/zhougong_new.jpg" alt="Dream Oracle" style="width:100%;height:100%;object-fit:cover" loading="lazy"></div>
+<div class="service-body">
+<div class="service-label">DREAM INTERPRETATION</div>
+<h2 class="service-title">Dream Oracle</h2>
+<p class="service-desc">Ancient Zhou Gong dream dictionary meets modern AI. Describe your dream, and Duke of Zhou decodes the hidden messages from your subconscious.</p>
+<ul class="service-features"><li>Zhou Gong's Classic Dream Dictionary</li><li>Symbol-by-Symbol Deep Analysis</li><li>Emotional & Psychological Insights</li><li>Personalized Dream Guidance</li><li>Dream Journal & Pattern Tracking</li></ul>
+<div class="service-cta"><a href="#" class="btn btn-gold" style="background:linear-gradient(135deg,rgba(180,160,220,.9),rgba(120,100,180,.9));color:#fff" onclick="openModalDream();return false">Decode My Dream</a></div>
+</div>
+</div>
+</div></section>
+
+
+
+
+
+
+<section id="masters"><div class="inner">
+  <div class="section-label fade-up">The Five Sages</div>
+  <h2 class="section-title fade-up">Five <span class="gold">Legendary Masters</span></h2>
+  <p class="section-sub fade-up">Each an immortal in their own right. Five independent readings, cross-validated and synthesized by the Scribe — Xu Xun — into one coherent oracle.</p>
+  <div class="masters">
+    <div class="master-card fade-up" onclick="showMasterDetail('Zhang Daoling')" style="cursor:pointer"><div class="avatar"><video autoplay loop muted playsinline poster="/images/zhangdaoling.png"><source src="/videos/zhangdaoling_v2.mp4" type="video/mp4"></video></div><div class="info"><h3>Zhang Daoling</h3><div class="cn-name">张道陵天师</div><div class="role">Ziwei Astrology · Life Foundation</div><p class="quote">"I read the Purple Stars, and see the roots of your blessings."</p></div></div>
+    <div class="master-card fade-up" onclick="showMasterDetail('Ge Xuan')" style="cursor:pointer"><div class="avatar"><video autoplay loop muted playsinline><source src="/videos/master_bazi_live.mp4" type="video/mp4"></video></div><div class="info"><h3>Ge Xuan</h3><div class="cn-name">葛玄天师</div><div class="role">Bazi · Elemental Fortune Curve</div><p class="quote">"The Eight Characters reveal your elemental dance with time."</p></div></div>
+    <div class="master-card fade-up" onclick="showMasterDetail('Sa Shoujian')" style="cursor:pointer"><div class="avatar"><video autoplay loop muted playsinline><source src="/videos/master_qimen_live.mp4" type="video/mp4"></video></div><div class="info"><h3>Sa Shoujian</h3><div class="cn-name">萨守坚天师</div><div class="role">Qimen Dunjia · Strategic Direction</div><p class="quote">"The Qimen gates shift with the wind. I show you which door to enter."</p></div></div>
+    <div class="master-card fade-up" onclick="showMasterDetail('Xu Xun')" style="cursor:pointer"><div class="avatar"><video autoplay loop muted playsinline><source src="/videos/master_scribe_live.mp4" type="video/mp4"></video></div><div class="info"><h3>Xu Xun</h3><div class="cn-name">许逊天师</div><div class="role">Scribe · Unified Oracle Synthesis</div><p class="quote">"Four voices speak. I weave them into one truth."</p></div></div>
+    <div class="master-card dream-master fade-up" onclick="showMasterDetail('Zhou Gong')" style="cursor:pointer"><div class="avatar"><img src="/images/zhougong_new.jpg" alt="周公" class="master-avatar-img"></div><div class="info"><h3>Zhou Gong</h3><div class="cn-name">周公旦</div><div class="role">Dream Decoding · Symbol Interpretation</div><p class="quote">"Every dream is a letter from the soul. I teach you to read it."</p></div></div>
+  </div>
+</div></section>
+
+<section id="blog"><div class="inner">
+  <div class="section-label fade-up">Ancient Wisdom</div>
+  <h2 class="section-title fade-up">Explore the <span class="gold">Knowledge</span></h2>
+  <p class="section-sub fade-up">Deepen your understanding of Chinese metaphysics — from star charts and elemental analysis to dream interpretation.</p>
+  <div class="blog-grid">
+    <a href="/blog/divination/bazi-four-pillars.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/bazi.jpg?v=2" alt="Bazi Four Pillars: Your Complete Destiny" loading="lazy"></div><div class="blog-info"><h4>Bazi Four Pillars: Your Complete Destiny Blueprint Explained</h4><p>Master the Bazi Four Pillars of Destiny. Learn how your birth year, month, day, and hour reveal your life path, personal</p></div></a>
+    <a href="/blog/divination/ziwei-12-palaces.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/ziwei.jpg?v=2" alt="Ziwei Dou Shu 12 Palaces: Complete Guide" loading="lazy"></div><div class="blog-info"><h4>Ziwei Dou Shu 12 Palaces: Complete Guide to Your Star Chart</h4><p>Explore all 12 palaces of Ziwei Dou Shu. From Life Palace to Parents Palace, understand what each sector of your star ch</p></div></a>
+    <a href="/blog/divination/chinese-zodiac.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/zodiac.jpg?v=2" alt="Chinese Zodiac: 12 Animal Signs, Persona" loading="lazy"></div><div class="blog-info"><h4>Chinese Zodiac: 12 Animal Signs, Personality & Compatibility</h4><p>Complete guide to the 12 Chinese zodiac signs. Discover your animal sign, personality traits, lucky elements, and romant</p></div></a>
+    <a href="/blog/divination/zhouyi-intro.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/tao.jpg?v=2" alt="Zhou Yi (I Ching) Introduction: The Book" loading="lazy"></div><div class="blog-info"><h4>Zhou Yi (I Ching) Introduction: The Book of Changes for Beginners</h4><p>A beginner-friendly guide to Zhou Yi (I Ching). Learn the 64 hexagrams, Yin-Yang philosophy, and how to consult the anci</p></div></a>
+    <a href="/blog/dream/top-10-common-dreams.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/dream.jpg?v=2" alt="Top 10 Most Common Dreams and What They " loading="lazy"></div><div class="blog-info"><h4>Top 10 Most Common Dreams and What They Mean | Tianling Pavilion</h4><p>Discover the 10 most common dreams across cultures and what Zhou Gong says about them. Falling, being chased, teeth fall</p></div></a>
+    <a href="/blog/dream/how-to-decode-dreams.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/smoke.jpg?v=2" alt="How to Decode Your Dreams: Zhou Gong Dre" loading="lazy"></div><div class="blog-info"><h4>How to Decode Your Dreams: Zhou Gong Dream Interpretation Guide</h4><p>Learn the ancient art of Zhou Gong dream interpretation. Understand dream symbols, recurring themes, and how to unlock t</p></div></a>
+    <a href="/blog/divination/qimen-dunjia.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/gold.jpg" alt="Qi Men Dun Jia: The Ancient Art of Strat" loading="lazy"></div><div class="blog-info"><h4>Qi Men Dun Jia: The Ancient Art of Strategic Divination</h4><p>The Yellow Emperor's battle formation — how cosmic doors reveal timing, direction, and opportunity.</p></div></a>
+    <a href="/blog/divination/feng-shui-home-basics.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/feng-shui-home-basics.jpg" alt="Feng Shui Basics: Arrange Your Home for " loading="lazy"></div><div class="blog-info"><h4>Feng Shui Basics: Arrange Your Home for Harmony and Prosperity</h4><p>Simple principles to balance energy in your living space. Door positions, room layout, and elemental harmony.</p></div></a>
+  </div>
+  <div style="text-align:center;margin-top:30px"><a href="/blog/" class="btn btn-gold" style="display:inline-block;padding:12px 32px">View All Articles →</a></div>
+
+</div></section>
+
+<section id="process" style="background:rgba(201,169,110,0.015)"><div class="inner">
+
+  <div class="section-label fade-up">How It Works</div>
+
+  <h2 class="section-title fade-up"><span class="gold">Four steps</span> to your oracle</h2>
+
+  <p class="section-sub fade-up">Real star chart calculation in seconds, not vague fortune-telling</p>
+
+  <div class="steps">
+
+    <div class="step fade-up"><div class="step-num">1</div><h4>Enter Birth Data</h4><p>Your birth date, time, and gender. Optional: birth location for true solar time.</p></div>
+
+    <div class="step fade-up"><div class="step-num">2</div><h4>Choose Your Focus</h4><p>Career, Wealth, Love, Health, or Full Life Reading. Each master tailors their analysis.</p></div>
+
+    <div class="step fade-up"><div class="step-num">3</div><h4>Four Masters Convene</h4><p>Ziwei chart calculated. Bazi analyzed. Qimen deployed. The Scribe cross-validates.</p></div>
+
+    <div class="step fade-up"><div class="step-num">4</div><h4>Receive Your Oracle</h4><p>Your complete reading: Destiny Map, Elemental Balance, Strategic Guidance, Plain-Language Summary.</p></div>
+
+  </div>
+
+</div></section>
+
+<section id="report"><div class="inner">
+
+  <div class="section-label fade-up">Inside Your Report</div>
+
+  <h2 class="section-title fade-up">What you <span class="gold">will receive</span></h2>
+
+  <div class="report-grid">
+
+    <div class="report-item fade-up"><div class="report-icon">&#9734;</div><h4>Real Ziwei Chart</h4><p>Actual 12-palace star chart calculated from your birth data using iztro algorithm.</p></div>
+
+    <div class="report-item fade-up"><div class="report-icon">&#8593;</div><h4>Bazi Pillars</h4><p>Your four pillars with elemental analysis and dominant energy identification.</p></div>
+
+    <div class="report-item fade-up"><div class="report-icon">&#9783;</div><h4>Qimen Strategy</h4><p>Auspicious directions, key dates, and tactical guidance for your focus area.</p></div>
+
+    <div class="report-item fade-up"><div class="report-icon">&#9998;</div><h4>Scribe Synthesis</h4><p>Cross-validated consensus from all three masters, in clear modern language.</p></div>
+
+  </div>
+
+</div></section>
+
+
+
+
+
+
+<section id="why" style="background:rgba(201,169,110,0.015)"><div class="inner">
+
+  <div class="section-label fade-up">Why Trust Tianling</div>
+
+  <h2 class="section-title fade-up">Not one voice. <span class="gold">Four in council.</span></h2>
+
+  <div class="trust">
+
+    <div class="trust-card fade-up"><div class="icon">&#9673;</div><h4>Real Algorithms, Not Guesswork</h4><p>Our Ziwei engine uses the iztro open-source algorithm — the same one trusted by thousands. Bazi and Qimen are rule-based on authentic Daoist principles.</p></div>
+
+    <div class="trust-card fade-up"><div class="icon">&#9672;</div><h4>Consistent. Impartial. Tireless.</h4><p>Our masters never fatigue. They follow orthodox metaphysical rules precisely — no exaggerations, no fear-mongering.</p></div>
+
+    <div class="trust-card fade-up"><div class="icon">&#9670;</div><h4>Premium Delivery</h4><p>Every report is a structured digital scroll with real data. Not vague WeChat messages — a proper oracle you can keep and revisit.</p></div>
+
+  </div>
+
+</div></section>
+
+
+
+<section id="faq"><div class="inner" style="max-width:800px">
+
+  <div class="section-label fade-up">FAQ</div>
+
+  <h2 class="section-title fade-up">Common <span class="gold">Questions</span></h2>
+
+  <div class="faq fade-up">
+
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How accurate is the star chart?</div><div class="faq-a">We use iztro, an open-source Ziwei Dou Shu algorithm trusted by the Chinese metaphysics community. The star positions and palace assignments are mathematically computed from your birth data.</div></div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Is my data private?</div><div class="faq-a">Your birth information is used only for this reading. We store no personally identifiable data.</div></div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How is four-master reading better?</div><div class="faq-a">A single system reads from one dimension. We use Ziwei, Bazi, and Qimen simultaneously, then cross-validate through the Scribe. The result is far more comprehensive than any single reading.</div></div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What if I don't understand my report?</div><div class="faq-a">Every report includes the Scribe's plain-language synthesis. Ancient terminology is translated into clear, actionable modern advice.</div></div>
+
+  </div>
+
+</div></section>
+
+
+
+<section class="cta" id="order">
+
+  <h2 class="fade-up">Your future, <span class="gold">illuminated.</span></h2>
+
+  <p class="fade-up" style="max-width:500px;margin:0 auto 32px">Let five divine masters and Duke of Zhou dream oracle calculate your real star chart. Completely free. No sign-up required.</p>
+
+  
+
+</section>
+
+
+
+<footer><span class="logo" style="display:inline-flex"><img src="/images/logo-nav.png" alt="" style="height:24px;width:24px;object-fit:contain;margin-right:8px">Tianling Pavilion</span><p>天灵阁 · Every reading powered by real algorithms<br><a href="/cdn-cgi/l/email-protection#073434323e3f3131353e4776762964686a" style="color:var(--gold);text-decoration:none"><span class="__cf_email__" data-cfemail="a69595939f9e9090949fe6d7d788c5c9cb">[email&#160;protected]</span></a></p><p style="margin-top:6px">&copy; 2026 Tianling Pavilion</p></footer>
+
+
+
+<div class="modal-overlay" id="modal-sample">
+
+  <div class="modal"><button class="modal-close" onclick="closeModal('sample')">&times;</button>
+
+    <h3>Sample <span class="gold">Destiny Report</span></h3>
+
+    <div class="result-section"><h5>&#9670; Ziwei Star Chart</h5><p>Life Palace (寅): Seven Kill Star. The Seven Kill configuration brings decisive energy to your core personality. Career Palace (戌): Greedy Wolf — ambition and drive define your professional path.</p></div>
+
+    <div class="result-section"><h5>&#9670; Bazi Pillars</h5><p>乙亥 己辰 乙未 己卯. Dominant Wood element. Your Day Master sits in harmony with the seasonal cycle, indicating natural adaptability.</p></div>
+
+    <div class="result-section"><h5>&#9670; Qimen Strategy</h5><p>Auspicious direction: West. Key dates: 8th, 10th, 22nd. The Door of Opening aligns — take action now.</p></div>
+
+    <div class="result-section"><h5>&#9670; Scribe's Synthesis</h5><p>The council of masters has reached consensus: your chart speaks of latent leadership awaiting activation. The stars illuminate — you walk the path.</p></div>
+
+    <div style="text-align:center"><a href="#" class="btn btn-gold" onclick="closeModal('sample');openModal('form');return false">Generate My Own Reading</a></div>
+
+  </div>
+
+</div>
+
+
+
+<div class="modal-overlay" id="modal-form">
+
+  <div class="modal" id="formModal">
+
+    <button class="modal-close" onclick="closeModal('form')">&times;</button>
+
+    <h3>Begin Your <span class="gold">Destiny Reading</span></h3>
+
+    
+
+    <div class="form-step active" id="step1">
+
+      <div class="form-group"><label>Year of Birth</label><input type="number" id="birthYear" placeholder="e.g. 1990" min="1900" max="2026"></div>
+
+      <div class="form-row">
+
+        <div class="form-group"><label>Month</label><select id="birthMonth"><option value="">Select</option></select></div>
+
+        <div class="form-group"><label>Day</label><select id="birthDay"><option value="">Select</option></select></div>
+
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group"><label>Hour of Birth (0-23)</label><input type="number" id="birthHour" placeholder="e.g. 8" min="0" max="23"></div>
+
+        <div class="form-group"><label>Gender</label><select id="birthGender"><option value="male">Male</option><option value="female">Female</option></select></div>
+
+      </div>
+
+      <div class="form-group dream-group"><label>Describe your dream (optional)</label><textarea id="dreamInput" class="dream-textarea" placeholder="What did you dream about? Symbols, people, places, emotions..." rows="2"></textarea></div>
+
+      <div class="form-nav"><button class="btn btn-gold" onclick="nextStep(1)">Continue</button></div>
+
+    </div>
+
+    
+
+    <div class="form-step" id="step2">
+
+      <div class="form-group"><label>What matters most to you?</label></div>
+
+      <div class="focus-options">
+
+        <div class="focus-opt" onclick="selectFocus(this,'Career')">💼 Career & Success</div>
+
+        <div class="focus-opt" onclick="selectFocus(this,'Wealth')">💰 Wealth & Fortune</div>
+
+        <div class="focus-opt" onclick="selectFocus(this,'Love')">💕 Love & Marriage</div>
+
+        <div class="focus-opt" onclick="selectFocus(this,'Health')">❤️ Health & Vitality</div>
+
+        <div class="focus-opt" onclick="selectFocus(this,'Annual')">📅 Annual Forecast</div>
+
+        
+
+        <div class="focus-opt" onclick="selectFocus(this,'General')">🔮 Full Life Reading</div>
+
+      </div>
+
+      <div class="form-nav">
+
+        <button class="btn btn-outline" onclick="prevStep(2)">Back</button>
+
+        <button class="btn btn-gold" id="submitBtn" disabled onclick="submitReading()">Summon the Four Masters</button>
+
+      </div>
+
+    </div>
+
+    
+
+    <div class="loading-screen" id="loadingScreen">
+
+      <div class="loading-pulse">
+
+        <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+
+        <div class="core"></div>
+
+      </div>
+
+      <div class="loading-masters">
+
+        <div class="loading-master" id="lm-ziwei"><div class="avatar-dot"></div><div class="name">Zhang<br>Daoling</div></div>
+
+        <div class="loading-master" id="lm-bazi"><div class="avatar-dot"></div><div class="name">Ge<br>Xuan</div></div>
+
+        <div class="loading-master" id="lm-qimen"><div class="avatar-dot"></div><div class="name">Sa<br>Shoujian</div></div>
+
+        <div class="loading-master" id="lm-scribe"><div class="avatar-dot"></div><div class="name">Xu<br>Xun</div></div>
+
+      </div>
+
+      <div class="loading-status" id="loadingStatus">Preparing the council...</div>
+
+    </div>
+
+    
+
+    <div class="result-screen" id="resultScreen">
+
+      <h3 style="margin-bottom:20px">Your <span class="gold">Oracle</span></h3>
+
+      <div id="resultContent"></div>
+
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px">
+
+        <button class="btn btn-gold" onclick="closeModal('form')">Close</button>
+
+        <button class="btn btn-outline" onclick="resetForm()">Start Over</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+var c=document.getElementById('particles'),x=c.getContext('2d'),p=[];
+
+function r(){c.width=window.innerWidth;c.height=window.innerHeight}
+
+r();window.addEventListener('resize',r);
+
+for(var i=0;i<40;i++)p.push({x:Math.random()*c.width,y:Math.random()*c.height,s:Math.random()*1.5+.5,vx:(Math.random()-.5)*.3,vy:-Math.random()*.5-.2,o:Math.random()*.4+.1});
+
+function a(){x.clearRect(0,0,c.width,c.height);for(var i=0;i<p.length;i++){var t=p[i];t.x+=t.vx;t.y+=t.vy;if(t.y<-10){t.y=c.height+10;t.x=Math.random()*c.width}x.beginPath();x.arc(t.x,t.y,t.s,0,Math.PI*2);x.fillStyle='rgba(201,169,110,'+t.o+')';x.fill()}requestAnimationFrame(a)}a();
+
+window.addEventListener('scroll',function(){document.getElementById('scroll-progress').style.width=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%'});
+
+var ls=0;window.addEventListener('scroll',function(){var s=window.scrollY;document.getElementById('nav').classList.toggle('hidden',s>ls&&s>100);ls=s});
+
+var ob=new IntersectionObserver(function(e){e.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.15});
+
+document.querySelectorAll('.fade-up').forEach(function(el){ob.observe(el)});
+
+
+
+// Populate selects
+
+for(var m=1;m<=12;m++){var o=document.createElement('option');o.value=m;o.textContent=m;document.getElementById('birthMonth').appendChild(o)}
+
+for(var d=1;d<=31;d++){var o=document.createElement('option');o.value=d;o.textContent=d;document.getElementById('birthDay').appendChild(o)}
+
+
+
+var currentFocus='';
+
+function openModal(t){var ov=document.getElementById('modal-'+t);if(ov){ov.classList.add('active');document.body.style.overflow='hidden'}if(t==='form')resetForm()}
+
+function closeModal(t){document.getElementById('modal-'+t).classList.remove('active');document.body.style.overflow='';resetForm()}
+
+document.querySelectorAll('.modal-overlay').forEach(function(ov){ov.addEventListener('click',function(e){if(e.target===this)closeModal(this.id.replace('modal-',''))})});
+
+
+
+function nextStep(f){if(f===1){if(!document.getElementById('birthYear').value||!document.getElementById('birthMonth').value){alert('Please fill in all fields.');return}}document.getElementById('step'+f).classList.remove('active');document.getElementById('step'+(f+1)).classList.add('active')}
+
+function prevStep(f){document.getElementById('step'+f).classList.remove('active');document.getElementById('step'+(f-1)).classList.add('active')}
+
+function selectFocus(el,v){document.querySelectorAll('.focus-opt').forEach(function(e){e.classList.remove('selected')});el.classList.add('selected');currentFocus=v;document.getElementById('submitBtn').disabled=false}
+
+
+
+var masters=['ziwei','bazi','qimen','scribe'];
+
+var statuses=['Charting the Purple Stars...','Calculating the Four Pillars...','Deploying the Mystical Matrix...','Cross-validating the council...'];
+
+
+
+function animateLoading(callback){
+
+  var i=0;
+
+  document.getElementById('loadingStatus').textContent=statuses[0];
+
+  function next(){
+
+    if(i>0){document.getElementById('lm-'+masters[i-1]).classList.add('done');document.getElementById('lm-'+masters[i-1]).classList.remove('active')}
+
+    if(i<4){
+
+      document.getElementById('lm-'+masters[i]).classList.add('active');
+
+      document.getElementById('loadingStatus').textContent=statuses[i];
+
+      i++;
+
+      setTimeout(next,800+Math.random()*400);
+
+    }else{
+
+      setTimeout(callback,500);
+
+    }
+
+  }
+
+  next();
+
+}
+
+
+
+async function submitReading(){
+
+  document.getElementById('step2').classList.remove('active');
+
+  document.getElementById('loadingScreen').classList.add('active');
+
+  document.getElementById('formModal').querySelector('h3').innerHTML='Masters <span class="gold">Convening...</span>';
+
+  
+
+  var data={
+
+    year:parseInt(document.getElementById('birthYear').value),
+
+    month:parseInt(document.getElementById('birthMonth').value),
+
+    day:parseInt(document.getElementById('birthDay').value),
+
+    hour:parseInt(document.getElementById('birthHour').value)||0,
+
+    gender:document.getElementById('birthGender').value,
+
+    dream:document.getElementById('dreamInput')?document.getElementById('dreamInput').value:'',
+
+    focus:currentFocus||'General'
+
+  };
+
+
+
+  animateLoading(async function(){
+
+    try{
+
+      document.getElementById('loadingStatus').textContent='Receiving the oracle...';
+
+      var resp=await fetch('/api/fortune',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+
+      var result=await resp.json();
+
+      
+
+      if(result.success){
+
+        showResult(result,data);
+
+      }else{
+
+        document.getElementById('loadingStatus').textContent='Error: '+result.error;
+
+      }
+
+    }catch(e){
+
+      document.getElementById('loadingStatus').textContent='Connection error. Please try again.';
+
+    }
+
+  });
+
+}
+
+
+
+function showResult(r,d){
+
+  document.getElementById('loadingScreen').classList.remove('active');
+
+  document.getElementById('resultScreen').classList.add('active');
+
+  document.getElementById('formModal').querySelector('h3').innerHTML='Your <span class="gold">Oracle</span>';
+
+  
+
+  var ziwei=r.ziwei,bazi=r.bazi,qimen=r.qimen,dream=r.dream,scribe=r.scribe;
+
+  var html='';
+
+  
+
+  html+='<div class="result-section"><h5>&#9670; Ziwei Star Chart</h5>';
+
+  html+='<p>Life Palace: <span class="sample-badge">'+ziwei.mingGong+'</span> '+ziwei.mingStars+'</p>';
+
+  html+='<p style="font-size:11px;color:var(--text-dim)">'+ziwei.palaces+'</p></div>';
+
+  
+
+  html+='<div class="result-section"><h5>&#9670; Bazi Analysis — Ge Xuan</h5>';
+
+  html+='<p>'+bazi.reading+'</p></div>';
+
+  
+
+  html+='<div class="result-section"><h5>&#9670; Qimen Strategy — Sa Shoujian</h5>';
+
+  html+='<p>'+qimen.reading+'</p></div>';
+
+  
+
+  if(dream&&dream.reading){
+
+  html+='<div class="result-section"><h5>&#9670; Dream Decoding — Zhou Gong</h5>';
+
+  html+='<p>'+dream.reading+'</p></div>';
+
+  }
+
+  
+  html+='<div class="result-section"><h5>&#9670; Scribe Synthesis — Xu Xun</h5>';
+
+  html+='<p>'+scribe.reading+'</p></div>';
+
+  html+='</div>';
+
+  document.getElementById('resultContent').innerHTML=html;
+
+}
+
+var masterDetails={
+  "Zhang Daoling":{name:"Zhang Daoling",role:"Ziwei Astrology · Life Foundation",
+    desc:"Zhang Daoling (张道陵, 34–156 AD) is the single most consequential figure in the history of Daoism — the founder of the Way of the Celestial Masters (天师道), humanity's first organized Daoist religion. Born Zhang Ling during the Eastern Han dynasty in Feng County (modern Jiangsu), he was a brilliant scholar of the Five Classics in his youth before abandoning court life to seek the Dao in the mountains of Sichuan.\n\nIn 142 AD, on Mount Heming (鹤鸣山), Laozi himself — now deified as Taishang Laojun (太上老君) — descended from the heavens and appeared before him. Laozi bestowed upon Zhang the title of Heavenly Master, conferred the sacred talismanic registers and sword, and charged him with purging the world of demonic corruption and healing a suffering humanity. This divine encounter transformed Zhang Daoling from a wandering hermit into the spiritual patriarch of millions.\n\nHe established a revolutionary system of 24 dioceses (二十四治) across Sichuan and Hanzhong, each functioning as both a spiritual community and a self-governing administrative unit. His followers — known as 'ghost soldiers' (鬼兵) — numbered in the hundreds of thousands. The movement was so successful that it formed a de facto theocratic state in the Hanzhong region, where Zhang's grandson Zhang Lu governed for decades with Daoist principles.\n\nZhang Daoling's spiritual innovations: talismans (符箓) drawn in vermilion ink that channeled divine energy for healing and protection, talismanic water (符水) that cured the sick when consumed, confession rituals where the ill wrote their sins and submerged them in rivers as an act of purification, and a merit-based clergy system that rejected hereditary priesthood in favor of demonstrated spiritual attainment.\n\nIn the Tianling Pavilion, Zhang Daoling reads your Ziwei Destiny Chart — the Purple Star Astrology (紫薇斗数). He maps your life across the complete twelve palaces: Life Palace (命宫) for your innate character and destiny signature, Siblings Palace (兄弟宫) for relationships with siblings and peers, Spouse Palace (夫妻宫) for marriage and romantic partnerships, Children Palace (子女宫) for offspring and creative output, Wealth Palace (財帛宫) for financial fortune and material resources, Health Palace (疾厄宫) for physical wellbeing and medical predispositions, Travel Palace (迁移宫) for relocations and life transitions, Friends Palace (交友宫) for social circles and alliances, Career Palace (官禄宫) for professional destiny and public standing, Property Palace (田宅宫) for real estate and living environment, Fortune Palace (福德宫) for blessings and spiritual merit, and Parents Palace (父母宫) for ancestral heritage and authority figures.\n\nEach palace houses specific stars — the Purple Emperor Star (紫薇), Heavenly Chancellor (天府), Heavenly Minister (天相), and dozens more — whose configurations at the exact moment of your birth, cross-referenced with your birth year's Heavenly Stem, chart the architecture of your entire life. His reading reveals which stars govern your destiny, where your deepest blessings originate, which palaces harbor hidden potentials yet to unfold, and the grand life trajectory the cosmos has laid out for you.",
+    quote:"\"I read the Purple Stars, and see the roots of your blessings.\""},
+  "Ge Xuan":{name:"Ge Xuan",role:"Bazi · Elemental Fortune Curve",
+    desc:"Ge Xuan (葛玄, 164–244 AD), venerated as Ge Xian Gong (葛仙公) — the Immortal Duke Ge — was a Daoist alchemist of such legendary prowess that even the emperor bowed to his power. He was the great-uncle and spiritual mentor to Ge Hong (葛洪), who would later compile the Baopuzi (抱朴子), one of the foundational texts of Daoist alchemy and immortality practice.\n\nBorn in Jurong (modern Jiangsu), Ge Xuan was a child prodigy who could recite the classics from memory at age eight. He abandoned his family's scholarly legacy to study under the immortal Zuo Ci (左慈), who taught him the secrets of compounding the elixir of immortality (丹药) and the art of — quite literally — disappearing from sight.\n\nThe Shenxian Zhuan (神仙传), a Han dynasty text recording the lives of immortals, recounts Ge Xuan's supernatural abilities in vivid detail: he could summon a banquet from thin air, conjure cups of wine that refilled themselves endlessly, walk upon the surface of lakes without disturbing the water, and split his body into dozens of identical copies that held conversations with different people simultaneously.\n\nMost famously, Emperor Sun Quan of Eastern Wu — the most powerful ruler of the Three Kingdoms era — summoned Ge Xuan to his court. In the grand hall filled with hundreds of officials, Ge Xuan spat a mouthful of water onto the floor, and from it sprouted a lotus flower that bloomed instantly, its petals shimmering with an unearthly light. Sun Quan built a temple in his honor on the spot, and from that day forward, treated Ge Xuan not as a subject but as a celestial being walking among mortals.\n\nIn the Tianling Pavilion, Ge Xuan reads your Bazi Four Pillars (八字命理), the most sophisticated system of destiny analysis in classical Chinese metaphysics. Your birth moment is encoded in the sexagenary cycle of ten Heavenly Stems (天干) and twelve Earthly Branches (地支). Each of the four pillars — Year (年柱), Month (月柱), Day (日柱), Hour (时柱) — contains one Stem and one Branch, yielding your eight characters.\n\nFrom these eight characters, Ge Xuan decodes: your Five Elements (五行) composition — Wood, Fire, Earth, Metal, Water — and their relative strengths, the Day Master (日主) that represents your core self, the Ten Gods (十神) such as Direct Officer, Indirect Wealth, Eating God, and Seven Killings that govern your relationships with spouse, career, children, and authority, your Decennial Fortune Cycles (大运) that trace the rise and fall of fortune across ten-year periods from childhood to old age, and your Annual Luck (流年) revealing the specific themes and opportunities of each passing year. His reading produces a complete elemental fortune curve detailing career peaks and valleys, wealth accumulation and dissolution cycles, relationship compatibility with romantic partners and business associates, and health patterns tied to elemental excesses and deficiencies at each stage of your life.",
+    quote:"\"The Eight Characters reveal your elemental dance with time.\""},
+  "Sa Shoujian":{name:"Sa Shoujian",role:"Qimen Dunjia · Strategic Direction",
+    desc:"Sa Shoujian (萨守坚), one of the supreme Four Heavenly Masters (四大天师) of Daoism, was the undisputed master of divine thunder. Living during the Song dynasty, he was a preeminent adept of the Shenxiao (神霄) school, a tradition so powerful that Emperor Huizong declared it the state religion and sought its masters' counsel on matters of war and governance.\n\nThe Shenxiao tradition believed that the entire cosmos was structured like a heavenly bureaucracy, with the God of Thunder (雷神) presiding over a divine court of lightning marshals, wind marshals, and rain marshals. Through secret oral transmissions (口诀), mudra hand seals (手诀), and talismanic invocations (符咒), Sa Shoujian could petition these celestial officials and command their power on earth.\n\nHis most famous legend recounts a devastating plague that swept through the villages of Jiangxi. Where physicians had failed and bodies piled in the streets, Sa Shoujian climbed to the peak of a mountain, chanted the Divine Heaven Thunder Invocation (神霄雷咒) seven times, and stamped his foot. The sky, which had been clear, suddenly convulsed with black clouds. Lightning arced down from the heavens, striking a great banyan tree that split open to reveal a pool of pure, sweet water — water that cured every person who drank it. The plague ended within three days.\n\nIn another account, a river demon had been capsizing fishing boats and drowning villagers for decades. Sa Shoujian walked to the riverbank at midnight, drew the Thunder Command talisman (雷令符) in the air with his sword, and the river boiled. The demon emerged in the form of a giant serpent, and Sa Shoujian sealed it inside a gourd with a single thunderclap.\n\nIn the Tianling Pavilion, Sa Shoujian deploys the Qimen Dunjia (奇门逮甲), the most sophisticated strategic oracle ever devised. Originally developed by the Yellow Emperor himself to defeat the demon Chiyou, Qimen Dunjia is a living mandala of cosmic energy whose configuration changes with every passing hour.\n\nThe complete Qimen plate consists of: the Nine Stars (九星) — including the Heavenly Heart, Heavenly Pillar, and Heavenly Avian — representing celestial energies governing fortune, health, and relationships, the Eight Doors (八门) — Open (开), Rest (休), Life (生), Harm (伤), Obstruction (杜), View (景), Death (死), and Fear (惊) — each representing a gate of either opportunity or peril at a specific compass direction, the Eight Deities (八神) representing divine interventions including the Grand Yin, Six Harmonies, and White Tiger, and the ten Heavenly Stems shifting their positions with every two-hour period, creating 1,080 unique configurations per day.\n\nSa Shoujian's reading reveals: the most auspicious timing for weddings, contract signings, business launches, and travel, favorable compass directions for relocation, office placement, and negotiation seating, hidden obstacles — the Harm and Death Doors — currently aligned against you and how to circumvent them, and strategic advantage windows where the cosmic energies favor bold action. The Qimen gates shift with the wind. He shows you exactly which door to enter, and when.",
+    quote:"\"The Qimen gates shift with the wind. I show you which door to enter.\""},
+  "Xu Xun":{name:"Xu Xun",role:"Scribe · Unified Oracle Synthesis",
+    desc:"Xu Xun (许逊, 239–374 AD), honored throughout China as Xu Zhenjun (许真君) — the Perfected Lord Xu — lived one of the most extraordinary lives in Daoist history: from dutiful Jin dynasty official to dragon-slaying immortal to founder of an enduring spiritual tradition.\n\nBorn in Nanchang to a family of scholars, Xu Xun was renowned from childhood for his extraordinary filial piety and moral rectitude. At age 20, he passed the imperial examinations and rose to become the magistrate of Jingyang County (旌阳令) in Sichuan, where he governed with such compassion and wisdom that the people called him 'Xu the Pure and Bright.'\n\nBut his true calling came when he met the immortal Wu Meng (吴猛), who initiated him into the secrets of Daoist cultivation. Xu Xun resigned his post, retreated to the Western Mountains, and devoted himself entirely to the Dao. There, he founded the Jingming Dao (净明道) — the Way of Purity and Light — a school that emphasized that spiritual cultivation and moral living were one and the same.\n\nThe legend for which he is most celebrated is the slaying of the Great Dragon of Jiangxi. A monstrous flood dragon (蛟龙) had made its lair beneath the Gan River, and every rainy season it would rise and flood the entire province. Over decades, the dragon had drowned over 100,000 people and rendered vast swaths of farmland uninhabitable.\n\nXu Xun descended from the Western Mountains with his enchanted sword, forged from meteoric iron and infused with pure Daoist virtue. He confronted the dragon at the confluence of five rivers. The battle lasted three days and three nights, the dragon summoning whirlpools and waterspouts, Xu Xun countering with talismans that turned the water to solid jade. On the third day, Xu Xun drove his sword through the dragon's heart and dragged its immense corpse to the temple at Tiezhugong (铁柱宫), where he pinned it beneath an iron pillar weighing ten thousand jin.\n\nAfter his earthly work was complete, legend records that Xu Xun ascended to heaven in broad daylight on the 15th day of the 8th lunar month, in the company of 42 members of his family and his beloved rooster and dog — giving rise to the Chinese idiom '一人得道，鸡犬升天' (When one person attains the Dao, even their chickens and dogs ascend to heaven).\n\nIn the Tianling Pavilion, Xu Xun serves the most critical role: the Scribe who synthesizes. He does not generate his own independent divination. Instead, he takes the three separate readings — Zhang Daoling's Ziwei life foundation, Ge Xuan's Bazi fortune curve, and Sa Shoujian's Qimen strategic timing — and cross-references them with the precision of a master scholar. His method is systematic: identify convergence points where two or more masters independently arrive at the same conclusion, note minority dissenting views without discarding them (for even a single dissenter may see what the others miss), resolve apparent contradictions by examining the deeper underlying patterns that explain why the Ziwei chart shows one thing while the Bazi shows another, and finally, synthesize all findings into one coherent, plain-language oracle written for a modern English reader — no jargon, no mystification, no contradictions. The result is a divination of unprecedented reliability: three completely independent systems, cross-validated by a fourth master whose only allegiance is to the truth.",
+    quote:"\"Four voices speak. I weave them into one truth.\""},
+  "Zhou Gong":{name:"Zhou Gong",role:"Dream Decoding · Symbol Interpretation",
+    desc:"Zhou Gong — the Duke of Zhou (周公旦, 11th century BC) — is one of the towering figures of human civilization: the architect of Chinese political philosophy, the ethical ideal of Confucius, and the author of the oldest continuously used system of dream interpretation in the world.\n\nHe was born Ji Dan (姬旦), the fourth son of King Wen of Zhou (周文王). When his father died, his elder brother ascended as King Wu and launched the campaign that overthrew the corrupt Shang dynasty. The Duke of Zhou served as his brother's chief strategist, composing the proclamation that justified the rebellion as the heaven-mandated overthrow of a tyrant — a document that established the Mandate of Heaven (天命) as the foundational principle of Chinese political legitimacy for the next 3,000 years.\n\nTragedy struck when King Wu died just two years after the conquest, leaving the throne to his infant son, King Cheng. The Duke of Zhou, rather than seizing power as many urged him to do, served as regent for seven years. He personally tutored the young king, crushed a massive rebellion by his own brothers who accused him of usurpation, consolidated Zhou rule over a territory stretching from the Yellow River to the Yangtze, built the eastern capital of Luoyang as a second center of governance, and codified the feudal system and ritual protocols that would define Chinese civilization through the ages. When King Cheng came of age, the Duke peacefully returned power — an act of selflessness so profound that Confucius, 500 years later, declared him the ideal human being.\n\nConfucius dreamed of the Duke of Zhou constantly through his youth. Late in life, when he noticed he had stopped dreaming of the Duke, he lamented: \"Extreme is my decay! For a long time, I have not dreamed of the Duke of Zhou\" — taking the absence of the dream as evidence of his own moral decline.\n\nThe Duke of Zhou's legacy as a philosopher-statesman is matched by his legacy as the father of dream interpretation. The Zhou Gong Dream Dictionary (周公解梦) catalogues hundreds of dream symbols and their meanings, a system so enduring that Chinese people still say \"I'm going to meet Zhou Gong\" (去见周公) as a poetic synonym for going to sleep.\n\nAmong the hundreds of symbols he catalogued: water symbolizes approaching wealth or emotional purification, with the quality of the water — clear, muddy, turbulent, calm — refining the meaning, snakes embody hidden wisdom, transformation, and in women's dreams, pregnancy or fertility, teeth falling out indicates deep concern for the health and safety of family members, flying represents soaring ambition, liberation from constraints, and untapped creative or professional potential, death paradoxically signifies rebirth, transformation, endings that make way for new beginnings, fish swimming in clear water foretells wealth and career advancement, fire signals passion, anger, or impending conflict depending on context.\n\nIn the Tianling Pavilion, the Duke of Zhou receives your dream and decodes it with the same method he perfected three thousand years ago: identifying the core symbolic elements, matching them to their traditional meanings from the ancient dictionary, connecting the symbols to your current life context and stated concerns, and delivering a poetic, psychologically insightful interpretation that reveals what your subconscious is urgently trying to communicate. Every dream is a letter from the soul. He taught humanity to read them — and he still does.",
+    quote:"\"Every dream is a letter from the soul. I teach you to read it.\""}
+};
+
+
+function showMasterDetail(name){
+  var d=masterDetails[name];
+  if(!d)return;
+  document.getElementById('masterDetailContent').innerHTML='<h3>'+d.name+' <span class="gold">'+d.cn+'</span></h3><div class="result-section"><h5>'+d.role+'</h5><p style="font-size:15px;line-height:1.8">'+d.desc+'</p><p class="quote" style="margin-top:16px;font-style:italic;color:var(--gold);font-size:16px">'+d.quote+'</p></div>';
+  openModal('master-detail');
+}
+
+function resetForm(){
+  document.querySelectorAll('.form-step').forEach(function(e){e.classList.remove('active')});
+  document.getElementById('step1').classList.add('active');
+  document.getElementById('loadingScreen').classList.remove('active');
+  document.getElementById('resultScreen').classList.remove('active');
+  document.getElementById('formModal').querySelector('h3').innerHTML='Begin Your <span class="gold">Destiny Reading</span>';
+  document.querySelectorAll('.focus-opt').forEach(function(e){e.classList.remove('selected')});
+  document.querySelectorAll('.loading-master').forEach(function(e){e.classList.remove('active','done')});
+  currentFocus='';document.getElementById('submitBtn').disabled=true;
+}
+
+
+
+function resetDream(){document.getElementById('dreamInputSection').style.display='block';document.getElementById('dreamLoading').style.display='none';document.getElementById('dreamResultScreen').style.display='none';document.getElementById('dreamText').value='';}
+</script>
+
+<div class="modal-overlay" id="modal-master-detail">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('master-detail')">&times;</button>
+    <div id="masterDetailContent"></div>
+  
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-dream">
+  <div class="modal dream-wide">
+    <button class="modal-close" onclick="closeModal('dream')">&times;</button>
+    <h3>Zhou Gong <span class="gold">Dream Decoding</span></h3>
+    <p class="dream-subtitle">Select a dream symbol or describe your own — the Duke of Zhou will decode it.</p>
+    <!-- 热门梦境标签 -->
+    <div class="dream-hot-tags" id="dreamHotTags"></div>
+    <!-- 分类Tab -->
+    <div class="dream-cats" id="dreamCats"></div>
+    <!-- 词库列表 -->
+    <div class="dream-dict" id="dreamDict"></div>
+    <!-- 输入区 -->
+    <div id="dreamInputSection" style="margin-top:16px">
+      <div class="form-group"><label>Or describe your own dream</label><textarea id="dreamText" class="dream-textarea" placeholder="What did you dream about? People, places, symbols, emotions..." rows="3"></textarea></div>
+      <div class="form-nav"><button class="btn btn-gold" onclick="submitDream()">Decode My Dream</button></div>
+    </div>
+    <!-- 加载 & 结果 -->
+    <div class="loading-screen" id="dreamLoading" style="display:none">
+      <div class="loading-pulse"><div class="pulse-ring"></div><div class="pulse-ring delay-1"></div><div class="pulse-ring delay-2"></div></div>
+      <p class="loading-status">Duke of Zhou is deciphering your dream...</p>
+    </div>
+    <div id="dreamResultScreen" style="display:none">
+      <div id="dreamResultContent"></div>
+      <div class="form-nav" style="margin-top:20px"><button class="btn btn-outline" onclick="resetDream()">Decode Another Dream</button></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
