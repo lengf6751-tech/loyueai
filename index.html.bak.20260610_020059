@@ -3,7 +3,6 @@
 
 <head>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4082714714379659" crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +22,6 @@
 <meta name="twitter:image" content="https://loyueai.com/images/og_share.jpg">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Tianling Pavilion","url":"https://loyueai.com/","description":"Ziwei, Bazi, Qimen - three ancient arts cross-validated by five divine masters. Real star charts, not vague fortunes.","logo":"https://loyueai.com/logo.png"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How accurate is the star chart?","acceptedAnswer":{"@type":"Answer","text":"We use iztro, an open-source Ziwei Dou Shu algorithm trusted by the Chinese metaphysics community. The star positions and palace assignments are mathematically computed from your birth data."}},{"@type":"Question","name":"Is my data private?","acceptedAnswer":{"@type":"Answer","text":"Your birth information is used only for this reading. We store no personally identifiable data."}},{"@type":"Question","name":"How is four-master reading better?","acceptedAnswer":{"@type":"Answer","text":"A single system reads from one dimension. We use Ziwei, Bazi, and Qimen simultaneously, then cross-validate through the Scribe. The result is far more comprehensive than any single reading."}},{"@type":"Question","name":"What if I don't understand my report?","acceptedAnswer":{"@type":"Answer","text":"Every report includes the Scribe's plain-language synthesis. Ancient terminology is translated into clear, actionable modern advice."}}]}</script>
 <script>
 // === 梦境词库 ===
 var dreamDB=[
@@ -190,52 +188,6 @@ function submitDream(){
     document.getElementById('dreamLoading').style.display='none';
     document.getElementById('dreamInputSection').style.display='block';
   });
-}
-
-// === Birth Chart Calculator (Homepage) ===
-(function(){
-  var m=document.getElementById("bcMonth");
-  if(m){["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"].forEach(function(n,i){var o=document.createElement("option");o.value=i+1;o.text=n;m.appendChild(o)})}
-  var d=document.getElementById("bcDay");
-  if(d){for(var i=1;i<=31;i++){var o=document.createElement("option");o.value=i;o.text=i;d.appendChild(o)}}
-})();
-
-var _Z=["Rat","Ox","Tiger","Rabbit","Dragon","Snake","Horse","Goat","Monkey","Rooster","Dog","Pig"];
-var _ZC=["鼠","牛","虎","兔","龙","蛇","马","羊","猴","鸡","狗","猪"];
-var _ZE=["🐀","🐂","🐅","🐇","🐉","🐍","🐴","🐐","🐒","🐓","🐕","🐖"];
-var _S=["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"];
-var _B=["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"];
-var _E=["Wood","Fire","Earth","Metal","Water"];
-var _EC=["木","火","土","金","水"];
-var _EE=["🌳","🔥","🏔️","⚙️","💧"];
-var _MB=[2,3,4,5,6,7,8,9,10,11,0,1];
-
-function bcCalc(){
-  var y=parseInt(document.getElementById("bcYear").value);
-  var m=parseInt(document.getElementById("bcMonth").value);
-  var d=parseInt(document.getElementById("bcDay").value);
-  var h=parseInt(document.getElementById("bcHour").value);
-  if(!y||!m||!d||isNaN(h))return;
-
-  var ai=(y-4)%12;
-  var ys=(y-4)%10, yb=(y-4)%12, ye=Math.floor(ys/2);
-  var ms=(ys*2+m-1)%10, mb=_MB[m-1], me=Math.floor(ms/2);
-  var ds=(y+Math.floor(y/4)+(m+1)*26/10+d-1)%10;ds=Math.floor(ds);if(ds<0)ds+=10;
-  var db=((y-4)+(m-1)*2+d-1)%12;if(db<0)db+=12;
-  var hb=Math.floor((h+1)/2)%12;
-  var hs=(ds*2+hb)%12%10;if(hs<0)hs+=10;
-  var de=Math.floor(ds/2),he=Math.floor(hs/2);
-
-  document.getElementById("bcEmoji").textContent=_ZE[ai];
-  document.getElementById("bcName").textContent=_Z[ai];
-  document.getElementById("bcCN").textContent=_ZC[ai]+" · "+_E[ye]+" "+_Z[ai];
-  document.getElementById("bcPillars").innerHTML=
-    '<span style="padding:6px 12px;background:rgba(201,169,110,.06);border-radius:8px;font-size:12px">Year: <b>'+_S[ys]+_B[yb]+'</b> '+_E[ye]+'</span>'+
-    '<span style="padding:6px 12px;background:rgba(201,169,110,.06);border-radius:8px;font-size:12px">Month: <b>'+_S[ms]+_B[mb]+'</b> '+_E[me]+'</span>'+
-    '<span style="padding:6px 12px;background:rgba(201,169,110,.1);border-radius:8px;font-size:12px;border:1px solid var(--gold)">Day ★: <b>'+_S[ds]+_B[db]+'</b> '+_E[de]+'</span>'+
-    '<span style="padding:6px 12px;background:rgba(201,169,110,.06);border-radius:8px;font-size:12px">Hour: <b>'+_S[hs]+_B[hb]+'</b> '+_E[he]+'</span>';
-  document.getElementById("bcElements").innerHTML='Day Master: '+_EE[de]+' <b>'+_E[de]+' '+_EC[de]+'</b> — your core self in Bazi';
-  document.getElementById("bcResult").style.display="block";
 }
 
 </script>
@@ -614,23 +566,6 @@ footer{text-align:center;padding:56px 24px;border-top:1px solid var(--gold-dim);
 @media(max-width:500px){.blog-grid{grid-template-columns:1fr}}
 
 
-/* === 12 Zodiac Showcase === */
-.zodiac-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
-.zodiac-card{background:var(--card-bg);border:1px solid var(--gold-dim);border-radius:16px;overflow:hidden;text-decoration:none;transition:all .35s;display:flex;flex-direction:column;position:relative}
-.zodiac-card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 12px 40px rgba(201,169,110,.12)}
-.zc-img{width:100%;aspect-ratio:4/3;overflow:hidden;background:rgba(201,169,110,.05);position:relative}
-.zc-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.zodiac-card:hover .zc-img img{transform:scale(1.08)}
-.zc-body{text-align:center;padding:12px 8px 14px;flex:1;display:flex;flex-direction:column;align-items:center;gap:2px}
-.zc-emoji{font-size:20px;line-height:1}
-.zc-body h4{font-family:'Noto Serif SC',serif;font-size:15px;font-weight:700;color:var(--text);margin:0;line-height:1.3}
-.zc-cn{font-family:'Noto Serif SC',serif;font-size:13px;color:var(--gold);letter-spacing:2px;font-weight:400}
-.zc-body p{font-size:10px;color:var(--text-dim);margin:0;line-height:1.4;letter-spacing:.5px}
-@media(max-width:1000px){.zodiac-grid{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:680px){.zodiac-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:420px){.zodiac-grid{grid-template-columns:repeat(2,1fr)}}
-
-
 .service-body{flex:1;padding:40px 48px 40px 0}
 .service-label{font-size:11px;letter-spacing:4px;color:var(--gold);margin-bottom:12px;opacity:.7;text-transform:uppercase}
 .service-title{font-family:'Noto Serif SC',serif;font-size:32px;font-weight:700;margin-bottom:12px;color:var(--text)}
@@ -766,27 +701,6 @@ var _hmt = _hmt || [];
 <div class="service-cta"><a href="#" class="btn btn-gold" style="background:linear-gradient(135deg,rgba(180,160,220,.9),rgba(120,100,180,.9));color:#fff" onclick="openModalDream();return false">Decode My Dream</a></div>
 </div>
 </div>
-<div class="service-card fade-up" id="bcCalcCard">
-<div class="service-image"><img src="/images/zodiac-wheel.jpg" alt="Chinese Zodiac Wheel" style="width:100%;height:100%;object-fit:cover" loading="lazy"></div>
-<div class="service-body">
-<div class="service-label">FREE CALCULATOR</div>
-<h2 class="service-title">Birth Chart</h2>
-<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
-  <input type="number" id="bcYear" placeholder="Year" min="1900" max="2030" value="1990" style="flex:1;min-width:60px;background:rgba(201,169,110,.08);border:1px solid var(--gold-dim);border-radius:8px;padding:8px 10px;color:var(--text);font-size:14px">
-  <select id="bcMonth" style="flex:1;min-width:60px;background:rgba(201,169,110,.08);border:1px solid var(--gold-dim);border-radius:8px;padding:8px 10px;color:var(--text);font-size:14px"><option value="">Month</option></select>
-  <select id="bcDay" style="flex:1;min-width:50px;background:rgba(201,169,110,.08);border:1px solid var(--gold-dim);border-radius:8px;padding:8px 10px;color:var(--text);font-size:14px"><option value="">Day</option></select>
-  <input type="number" id="bcHour" placeholder="Hr" min="0" max="23" value="12" style="flex:1;min-width:45px;background:rgba(201,169,110,.08);border:1px solid var(--gold-dim);border-radius:8px;padding:8px 10px;color:var(--text);font-size:14px">
-</div>
-<button onclick="bcCalc()" style="width:100%;margin-top:10px;background:var(--gold);color:#06060c;border:none;border-radius:8px;padding:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit">Calculate</button>
-<div id="bcResult" style="display:none;margin-top:12px;padding:12px;background:rgba(201,169,110,.05);border-radius:10px;text-align:center">
-  <div style="font-size:36px" id="bcEmoji"></div>
-  <div style="font-size:20px;font-weight:700;margin:4px 0" id="bcName"></div>
-  <div style="font-size:13px;color:var(--gold)" id="bcCN"></div>
-  <div style="display:flex;gap:8px;margin-top:10px;justify-content:center;flex-wrap:wrap" id="bcPillars"></div>
-  <div style="margin-top:10px;font-size:12px;color:var(--text-dim)" id="bcElements"></div>
-</div>
-</div>
-</div>
 </div></section>
 
 
@@ -812,81 +726,18 @@ var _hmt = _hmt || [];
   <h2 class="section-title fade-up">Explore the <span class="gold">Knowledge</span></h2>
   <p class="section-sub fade-up">Deepen your understanding of Chinese metaphysics — from star charts and elemental analysis to dream interpretation.</p>
   <div class="blog-grid">
-    <a href="/blog/divination/feng-shui-bedroom-guide.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/feng-shui-bedroom-guide.jpg" alt="Feng Shui Bedroom Guide" loading="lazy"></div><div class="blog-info"><h4>Feng Shui Bedroom: 15 Rules for Love, Sleep & Prosperity</h4><p>Master bedroom Feng Shui from ancient Form School. Bed placement, colors, mirrors, Bagua map, and 15 time-tested rules for better sleep.</p></div></a>
-    <a href="/blog/divination/palm-reading-lines-guide.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/palm-reading-lines-guide.jpg" alt="Palm Reading Lines Guide" loading="lazy"></div><div class="blog-info"><h4>Palm Reading Lines: Complete Guide to 7 Lines That Reveal Your Destiny</h4><p>Master all 7 palm lines: Life, Head, Heart, Fate, Sun, Marriage, and Health. Chinese palmistry with comparison tables.</p></div></a>
-    <a href="/blog/divination/bazi-four-pillars.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/bazi.jpg?v=2" alt="Bazi Four Pillars" loading="lazy"></div><div class="blog-info"><h4>Bazi Four Pillars: Your Complete Destiny Blueprint Explained</h4><p>Master the Bazi Four Pillars of Destiny. Learn how your birth year, month, day, and hour reveal your life path.</p></div></a>
-    <a href="/blog/divination/ziwei-12-palaces.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/ziwei.jpg?v=2" alt="Ziwei Dou Shu 12 Palaces" loading="lazy"></div><div class="blog-info"><h4>Ziwei Dou Shu 12 Palaces: Complete Guide to Your Star Chart</h4><p>Explore all 12 palaces of Ziwei Dou Shu. From Life Palace to Parents Palace, understand each sector of your star chart.</p></div></a>
-    <a href="/blog/divination/chinese-fortune-telling.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/chinese-fortune-telling.jpg" alt="Chinese Fortune Telling" loading="lazy"></div><div class="blog-info"><h4>Chinese Fortune Telling: 6 Ancient Systems That Reveal Your Destiny</h4><p>Complete guide to Bazi, Ziwei, Qimen, I Ching, Face Reading, and Palm Reading. Learn how each system works.</p></div></a>
-    <a href="/blog/divination/feng-shui-front-door.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/feng-shui-front-door.jpg" alt="Feng Shui Front Door" loading="lazy"></div><div class="blog-info"><h4>Feng Shui Front Door: 12 Rules for Wealth, Protection & Good Fortune</h4><p>Your front door is the mouth of Qi. Door colors by compass direction, entrance placement, and ancient wealth rules.</p></div></a>
-    <a href="/blog/divination/feng-shui-wealth.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/feng-shui-wealth.jpg" alt="Feng Shui for Wealth" loading="lazy"></div><div class="blog-info"><h4>Feng Shui for Wealth: 10 Proven Ways to Attract Money & Abundance</h4><p>Activate your money corner with plants, crystals, colors, and water features. 10 actionable wealth techniques.</p></div></a>
-    <a href="/blog/divination/chinese-zodiac.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/zodiac.jpg?v=2" alt="Chinese Zodiac" loading="lazy"></div><div class="blog-info"><h4>Chinese Zodiac: 12 Animal Signs, Personality & Compatibility</h4><p>Complete guide to the 12 Chinese zodiac signs. Discover your animal sign, personality traits, and romantic compatibility.</p></div></a>
+    <a href="/blog/divination/bazi-four-pillars.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/bazi.jpg?v=2" alt="Bazi Four Pillars: Your Complete Destiny" loading="lazy"></div><div class="blog-info"><h4>Bazi Four Pillars: Your Complete Destiny Blueprint Explained</h4><p>Master the Bazi Four Pillars of Destiny. Learn how your birth year, month, day, and hour reveal your life path, personal</p></div></a>
+    <a href="/blog/divination/ziwei-12-palaces.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/ziwei.jpg?v=2" alt="Ziwei Dou Shu 12 Palaces: Complete Guide" loading="lazy"></div><div class="blog-info"><h4>Ziwei Dou Shu 12 Palaces: Complete Guide to Your Star Chart</h4><p>Explore all 12 palaces of Ziwei Dou Shu. From Life Palace to Parents Palace, understand what each sector of your star ch</p></div></a>
+    <a href="/blog/divination/chinese-zodiac.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/zodiac.jpg?v=2" alt="Chinese Zodiac: 12 Animal Signs, Persona" loading="lazy"></div><div class="blog-info"><h4>Chinese Zodiac: 12 Animal Signs, Personality & Compatibility</h4><p>Complete guide to the 12 Chinese zodiac signs. Discover your animal sign, personality traits, lucky elements, and romant</p></div></a>
+    <a href="/blog/divination/zhouyi-intro.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/tao.jpg?v=2" alt="Zhou Yi (I Ching) Introduction: The Book" loading="lazy"></div><div class="blog-info"><h4>Zhou Yi (I Ching) Introduction: The Book of Changes for Beginners</h4><p>A beginner-friendly guide to Zhou Yi (I Ching). Learn the 64 hexagrams, Yin-Yang philosophy, and how to consult the anci</p></div></a>
+    <a href="/blog/dream/top-10-common-dreams.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/dream.jpg?v=2" alt="Top 10 Most Common Dreams and What They " loading="lazy"></div><div class="blog-info"><h4>Top 10 Most Common Dreams and What They Mean | Tianling Pavilion</h4><p>Discover the 10 most common dreams across cultures and what Zhou Gong says about them. Falling, being chased, teeth fall</p></div></a>
+    <a href="/blog/dream/how-to-decode-dreams.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/smoke.jpg?v=2" alt="How to Decode Your Dreams: Zhou Gong Dre" loading="lazy"></div><div class="blog-info"><h4>How to Decode Your Dreams: Zhou Gong Dream Interpretation Guide</h4><p>Learn the ancient art of Zhou Gong dream interpretation. Understand dream symbols, recurring themes, and how to unlock t</p></div></a>
+    <a href="/blog/divination/qimen-dunjia.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/gold.jpg" alt="Qi Men Dun Jia: The Ancient Art of Strat" loading="lazy"></div><div class="blog-info"><h4>Qi Men Dun Jia: The Ancient Art of Strategic Divination</h4><p>The Yellow Emperor's battle formation — how cosmic doors reveal timing, direction, and opportunity.</p></div></a>
+    <a href="/blog/divination/feng-shui-home-basics.html" class="blog-card fade-up"><div class="blog-img"><img src="/blog/thumbs/feng-shui-home-basics.jpg" alt="Feng Shui Basics: Arrange Your Home for " loading="lazy"></div><div class="blog-info"><h4>Feng Shui Basics: Arrange Your Home for Harmony and Prosperity</h4><p>Simple principles to balance energy in your living space. Door positions, room layout, and elemental harmony.</p></div></a>
   </div>
   <div style="text-align:center;margin-top:30px"><a href="/blog/" class="btn btn-gold" style="display:inline-block;padding:12px 32px">View All Articles →</a></div>
 
 </div></section>
-
-
-<section id="zodiac" style="background:linear-gradient(180deg,rgba(201,169,110,0.04) 0%,transparent 100%)"><div class="inner" style="max-width:1200px">
-
-  <div class="section-label fade-up">Discover Your Sign</div>
-  <h2 class="section-title fade-up">12 <span class="gold">Chinese Zodiac</span> Animals</h2>
-  <p class="section-sub fade-up">Each sign reveals your hidden personality, fortune path, and romantic destiny. Click your animal to unlock the ancient wisdom.</p>
-
-  <div class="zodiac-grid">
-    <a href="/blog/divination/chinese-zodiac-rat.html" class="zodiac-card fade-up">
-      <div class="zc-img"><img src="/blog/thumbs/chinese-zodiac-rat.jpg" alt="Rat" loading="lazy"></div>
-      <div class="zc-body"><span class="zc-emoji">🐀</span><h4>Rat</h4><span class="zc-cn">鼠</span><p>Witty · Adaptable · Charming</p></div>
-    </a>
-    <a href="/blog/divination/chinese-zodiac-ox.html" class="zodiac-card fade-up">
-      <div class="zc-img"><img src="/blog/thumbs/chinese-zodiac-ox.jpg" alt="Ox" loading="lazy"></div>
-      <div class="zc-body"><span class="zc-emoji">🐂</span><h4>Ox</h4><span class="zc-cn">牛</span><p>Steadfast · Reliable · Strong</p></div>
-    </a>
-    <a href="/blog/divination/chinese-zodiac-tiger.html" class="zodiac-card fade-up">
-      <div class="zc-img"><img src="/blog/thumbs/chinese-zodiac-tiger.jpg" alt="Tiger" loading="lazy"></div>
-      <div class="zc-body"><span class="zc-emoji">🐅</span><h4>Tiger</h4><span class="zc-cn">虎</span><p>Bold · Passionate · Fearless</p></div>
-    </a>
-    <a href="/blog/divination/chinese-zodiac-rabbit.html" class="zodiac-card fade-up">
-      <div class="zc-img"><img src="/blog/thumbs/chinese-zodiac-rabbit.jpg" alt="Rabbit" loading="lazy"></div>
-      <div class="zc-body"><span class="zc-emoji">🐇</span><h4>Rabbit</h4><span class="zc-cn">兔</span><p>Gentle · Elegant · Lucky</p></div>
-    </a>
-    <a href="/blog/divination/chinese-zodiac-dragon.html" class="zodiac-card fade-up">
-      <div class="zc-img"><img src="/blog/thumbs/chinese-zodiac-dragon.jpg" alt="Dragon" loading="lazy"></div>
-      <div class="zc-body"><span class="zc-emoji">🐉</span><h4>Dragon</h4><span class="zc-cn">龙</span><p>Powerful · Charismatic · Ambitious</p></div>
-    </a>
-    <a href="/blog/divination/chinese-zodiac-snake.html" class="zodiac-card fade-up">
-      <div class="zc-img"><img src="/blog/thumbs/chinese-zodiac-snake.jpg" alt="Snake" loading="lazy"></div>
-      <div class="zc-body"><span class="zc-emoji">🐍</span><h4>Snake</h4><span class="zc-cn">蛇</span><p>Wise · Intuitive · Mysterious</p></div>
-    </a>
-    <a href="/blog/divination/chinese-zodiac-horse.html" class="zodiac-card fade-up">
-      <div class="zc-img"><img src="/blog/thumbs/chinese-zodiac-horse.jpg" alt="Horse" loading="lazy"></div>
-      <div class="zc-body"><span class="zc-emoji">🐴</span><h4>Horse</h4><span class="zc-cn">马</span><p>Free · Energetic · Adventurous</p></div>
-    </a>
-    <a href="/blog/divination/chinese-zodiac-goat.html" class="zodiac-card fade-up">
-      <div class="zc-img"><img src="/blog/thumbs/chinese-zodiac-goat.jpg" alt="Goat" loading="lazy"></div>
-      <div class="zc-body"><span class="zc-emoji">🐐</span><h4>Goat</h4><span class="zc-cn">羊</span><p>Creative · Kind · Peaceful</p></div>
-    </a>
-    <a href="/blog/divination/chinese-zodiac-monkey.html" class="zodiac-card fade-up">
-      <div class="zc-img"><img src="/blog/thumbs/chinese-zodiac-monkey.jpg" alt="Monkey" loading="lazy"></div>
-      <div class="zc-body"><span class="zc-emoji">🐒</span><h4>Monkey</h4><span class="zc-cn">猴</span><p>Clever · Witty · Playful</p></div>
-    </a>
-    <a href="/blog/divination/chinese-zodiac-rooster.html" class="zodiac-card fade-up">
-      <div class="zc-img"><img src="/blog/thumbs/chinese-zodiac-rooster.jpg" alt="Rooster" loading="lazy"></div>
-      <div class="zc-body"><span class="zc-emoji">🐓</span><h4>Rooster</h4><span class="zc-cn">鸡</span><p>Confident · Honest · Punctual</p></div>
-    </a>
-    <a href="/blog/divination/chinese-zodiac-dog.html" class="zodiac-card fade-up">
-      <div class="zc-img"><img src="/blog/thumbs/chinese-zodiac-dog.jpg" alt="Dog" loading="lazy"></div>
-      <div class="zc-body"><span class="zc-emoji">🐕</span><h4>Dog</h4><span class="zc-cn">狗</span><p>Loyal · Brave · Just</p></div>
-    </a>
-    <a href="/blog/divination/chinese-zodiac-pig.html" class="zodiac-card fade-up">
-      <div class="zc-img"><img src="/blog/thumbs/chinese-zodiac-pig.jpg" alt="Pig" loading="lazy"></div>
-      <div class="zc-body"><span class="zc-emoji">🐖</span><h4>Pig</h4><span class="zc-cn">猪</span><p>Generous · Warm · Honest</p></div>
-    </a>
-  </div>
-
-  <div style="text-align:center;margin-top:30px"><a href="/blog/divination/chinese-zodiac.html" class="btn btn-gold" style="display:inline-block;padding:12px 32px">Read Full Zodiac Guide →</a></div>
-
-</div></section>
-
 
 <section id="process" style="background:rgba(201,169,110,0.015)"><div class="inner">
 
