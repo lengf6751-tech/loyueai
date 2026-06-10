@@ -191,6 +191,52 @@ function submitDream(){
   });
 }
 
+// === Birth Chart Calculator (Homepage) ===
+(function(){
+  var m=document.getElementById("bcMonth");
+  if(m){["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"].forEach(function(n,i){var o=document.createElement("option");o.value=i+1;o.text=n;m.appendChild(o)})}
+  var d=document.getElementById("bcDay");
+  if(d){for(var i=1;i<=31;i++){var o=document.createElement("option");o.value=i;o.text=i;d.appendChild(o)}}
+})();
+
+var _Z=["Rat","Ox","Tiger","Rabbit","Dragon","Snake","Horse","Goat","Monkey","Rooster","Dog","Pig"];
+var _ZC=["鼠","牛","虎","兔","龙","蛇","马","羊","猴","鸡","狗","猪"];
+var _ZE=["🐀","🐂","🐅","🐇","🐉","🐍","🐴","🐐","🐒","🐓","🐕","🐖"];
+var _S=["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"];
+var _B=["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"];
+var _E=["Wood","Fire","Earth","Metal","Water"];
+var _EC=["木","火","土","金","水"];
+var _EE=["🌳","🔥","🏔️","⚙️","💧"];
+var _MB=[2,3,4,5,6,7,8,9,10,11,0,1];
+
+function bcCalc(){
+  var y=parseInt(document.getElementById("bcYear").value);
+  var m=parseInt(document.getElementById("bcMonth").value);
+  var d=parseInt(document.getElementById("bcDay").value);
+  var h=parseInt(document.getElementById("bcHour").value);
+  if(!y||!m||!d||isNaN(h))return;
+
+  var ai=(y-4)%12;
+  var ys=(y-4)%10, yb=(y-4)%12, ye=Math.floor(ys/2);
+  var ms=(ys*2+m-1)%10, mb=_MB[m-1], me=Math.floor(ms/2);
+  var ds=(y+Math.floor(y/4)+(m+1)*26/10+d-1)%10;ds=Math.floor(ds);if(ds<0)ds+=10;
+  var db=((y-4)+(m-1)*2+d-1)%12;if(db<0)db+=12;
+  var hb=Math.floor((h+1)/2)%12;
+  var hs=(ds*2+hb)%12%10;if(hs<0)hs+=10;
+  var de=Math.floor(ds/2),he=Math.floor(hs/2);
+
+  document.getElementById("bcEmoji").textContent=_ZE[ai];
+  document.getElementById("bcName").textContent=_Z[ai];
+  document.getElementById("bcCN").textContent=_ZC[ai]+" · "+_E[ye]+" "+_Z[ai];
+  document.getElementById("bcPillars").innerHTML=
+    '<span style="padding:6px 12px;background:rgba(201,169,110,.06);border-radius:8px;font-size:12px">Year: <b>'+_S[ys]+_B[yb]+'</b> '+_E[ye]+'</span>'+
+    '<span style="padding:6px 12px;background:rgba(201,169,110,.06);border-radius:8px;font-size:12px">Month: <b>'+_S[ms]+_B[mb]+'</b> '+_E[me]+'</span>'+
+    '<span style="padding:6px 12px;background:rgba(201,169,110,.1);border-radius:8px;font-size:12px;border:1px solid var(--gold)">Day ★: <b>'+_S[ds]+_B[db]+'</b> '+_E[de]+'</span>'+
+    '<span style="padding:6px 12px;background:rgba(201,169,110,.06);border-radius:8px;font-size:12px">Hour: <b>'+_S[hs]+_B[hb]+'</b> '+_E[he]+'</span>';
+  document.getElementById("bcElements").innerHTML='Day Master: '+_EE[de]+' <b>'+_E[de]+' '+_EC[de]+'</b> — your core self in Bazi';
+  document.getElementById("bcResult").style.display="block";
+}
+
 </script>
 
 
@@ -719,14 +765,25 @@ var _hmt = _hmt || [];
 <div class="service-cta"><a href="#" class="btn btn-gold" style="background:linear-gradient(135deg,rgba(180,160,220,.9),rgba(120,100,180,.9));color:#fff" onclick="openModalDream();return false">Decode My Dream</a></div>
 </div>
 </div>
-<div class="service-card fade-up">
+<div class="service-card fade-up" id="bcCalcCard">
 <div class="service-image"><img src="/blog/thumbs/chinese-birth-chart.jpg" alt="Birth Chart Calculator" style="width:100%;height:100%;object-fit:cover" loading="lazy"></div>
 <div class="service-body">
 <div class="service-label">FREE CALCULATOR</div>
 <h2 class="service-title">Birth Chart</h2>
-<p class="service-desc">Enter your birth date and instantly discover your Chinese zodiac animal, ruling element, and complete Four Pillars chart — the foundation of Bazi fortune telling.</p>
-<ul class="service-features"><li>Zodiac Animal & Chinese Name</li><li>Five Elements Year + Day Master</li><li>Full Four Pillars Chart</li><li>Personality & Fortune Insights</li></ul>
-<div class="service-cta"><a href="/birth-chart.html" class="btn btn-gold">Calculate My Chart →</a></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+  <input type="number" id="bcYear" placeholder="Year" min="1900" max="2030" value="1990" style="flex:1;min-width:60px;background:rgba(201,169,110,.08);border:1px solid var(--gold-dim);border-radius:8px;padding:8px 10px;color:var(--text);font-size:14px">
+  <select id="bcMonth" style="flex:1;min-width:60px;background:rgba(201,169,110,.08);border:1px solid var(--gold-dim);border-radius:8px;padding:8px 10px;color:var(--text);font-size:14px"><option value="">Month</option></select>
+  <select id="bcDay" style="flex:1;min-width:50px;background:rgba(201,169,110,.08);border:1px solid var(--gold-dim);border-radius:8px;padding:8px 10px;color:var(--text);font-size:14px"><option value="">Day</option></select>
+  <input type="number" id="bcHour" placeholder="Hr" min="0" max="23" value="12" style="flex:1;min-width:45px;background:rgba(201,169,110,.08);border:1px solid var(--gold-dim);border-radius:8px;padding:8px 10px;color:var(--text);font-size:14px">
+</div>
+<button onclick="bcCalc()" style="width:100%;margin-top:10px;background:var(--gold);color:#06060c;border:none;border-radius:8px;padding:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit">Calculate</button>
+<div id="bcResult" style="display:none;margin-top:12px;padding:12px;background:rgba(201,169,110,.05);border-radius:10px;text-align:center">
+  <div style="font-size:36px" id="bcEmoji"></div>
+  <div style="font-size:20px;font-weight:700;margin:4px 0" id="bcName"></div>
+  <div style="font-size:13px;color:var(--gold)" id="bcCN"></div>
+  <div style="display:flex;gap:8px;margin-top:10px;justify-content:center;flex-wrap:wrap" id="bcPillars"></div>
+  <div style="margin-top:10px;font-size:12px;color:var(--text-dim)" id="bcElements"></div>
+</div>
 </div>
 </div>
 </div></section>
