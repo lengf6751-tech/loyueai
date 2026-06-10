@@ -5,8 +5,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daily Oracle — Tianling Pavilion | Free Daily Chinese Zodiac & Fortune</title>
-<meta name="description" content="Daily Chinese zodiac, Bazi fortune, Qimen directions, Zhou Gong dream symbols, I Ching hexagrams, face reading, palm reading, and Feng Shui tips — delivered daily by 8 divine masters for global audience.">
-<meta name="keywords" content="daily chinese zodiac, today horoscope, daily fortune, bazi today, dream of the day, feng shui daily, qimen direction, i ching daily, face reading, palm reading">
+<meta name="description" content="Daily Chinese zodiac forecasts, Bazi fortune tips, Zhou Gong dream symbol of the day, and Qimen auspicious directions — delivered daily by the Four Divine Masters.">
+<meta name="keywords" content="daily chinese zodiac, today horoscope, daily fortune, bazi today, dream of the day, feng shui daily, qimen direction">
 <link rel="canonical" href="https://loyueai.com/daily/">
 <meta property="og:title" content="Daily Oracle — Four Masters Deliver Your Fortune">
 <meta property="og:description" content="Today's Chinese zodiac, Bazi, Qimen, and dream oracle from the Tianling Pavilion.">
@@ -94,9 +94,9 @@ footer a{color:var(--gold);text-decoration:none}
 
 <!-- Hero -->
 <div class="hero">
-<p class="date" id="dailyDate">June 11, 2026</p>
+<p class="date" id="dailyDate">June 10, 2026</p>
 <h1>Today's <span class="gold">Oracle</span></h1>
-<p class="subtitle">Eight divine masters convene each dawn — delivering wisdom across Chinese metaphysics for global seekers.</p>
+<p class="subtitle">Four divine masters convene each dawn to read the cosmic currents of the day ahead.</p>
 <div class="masters-row" id="mastersRow">
 <!-- Filled by JS -->
 </div>
@@ -105,7 +105,7 @@ footer a{color:var(--gold);text-decoration:none}
 <!-- Zodiac Section -->
 <div class="section" id="zodiacSection">
 <h2>🐉 Today's Chinese Zodiac</h2>
-<p class="byline">Zhang Daoling reads the Purple Stars for all twelve signs</p>
+<p class="byline" id="zodiacByline">Zhang Daoling reads the Purple Stars for all twelve signs</p>
 <div class="zodiac-grid" id="zodiacGrid">
 <!-- Filled by JS -->
 </div>
@@ -114,10 +114,10 @@ footer a{color:var(--gold);text-decoration:none}
 <!-- Bazi Section -->
 <div class="section">
 <h2>⚖️ Bazi — Today's Elemental Flow</h2>
-<p class="byline">Ge Xuan decodes the Five Elements for June 11, 2026</p>
+<p class="byline" id="baziByline">Ge Xuan decodes the Five Elements</p>
 <div class="card" id="baziCard">
-<h3><span>🔥</span>Today's Dominant Element: <span class="gold">Fire</span></h3>
-<p>Fire energy peaks at noon. Channel passion into creative work before 2 PM. Avoid confrontation during the Horse hour (11 AM–1 PM) when flames burn hottest. Water-sign people (Rat, Pig) should hydrate well and seek shade — your element is suppressed today.</p>
+<h3><span>💧</span>Today's Dominant Element: <span class="gold">Water</span></h3>
+<p>Water energy cascades through the heavenly stems today, nourishing Wood signs (Tiger, Rabbit) with creative vitality and new beginnings. The Water-Wood generative cycle makes this an exceptional day for planting seeds — both literal gardens and metaphorical ventures. Metal signs (Monkey, Rooster) serve as the source of today's Water, putting teachers, mentors, and elders in a position of profound influence over your path. Fire signs (Snake, Horse) should exercise caution before noon — Water dampens Fire's natural confidence, so postpone major financial commitments until evening when the elemental balance shifts. Earth signs (Ox, Dragon, Goat, Dog) find steady ground beneath their feet, ideal for consolidating gains rather than chasing new ones.</p>
 </div>
 </div>
 
@@ -127,16 +127,16 @@ footer a{color:var(--gold);text-decoration:none}
 <p class="byline">Sa Shoujian deploys the Qimen matrix</p>
 <div class="tips-grid" id="qimenGrid">
 <div class="card">
-<h3><span>🚪</span>Auspicious Door: <span class="gold">Northeast</span></h3>
-<p>The Life Door opens in the northeast today. Face this direction when making important calls, signing contracts, or meditating. Best window: 7–9 AM.</p>
+<h3><span>🚪</span>Auspicious Door: <span class="gold">Southeast</span></h3>
+<p>The Delight Door opens in the southeast today — a rare alignment with the Heavenly Joy star. Face this direction when making romantic gestures, creative pitches, or negotiating compromises. The energy here softens resistance and invites cooperation. Best amplified during the Wu hour.</p>
 </div>
 <div class="card">
-<h3><span>⛔</span>Door to Avoid: <span class="gold">South</span></h3>
-<p>The Death Door sits in the south. Postpone travel in this direction. If unavoidable, carry something red for protection.</p>
+<h3><span>⛔</span>Door to Avoid: <span class="gold">Northwest</span></h3>
+<p>The Injury Door lurks in the northwest quadrant. Postpone confrontations, legal discussions, and difficult conversations today. If you must travel northwest, carry a small piece of obsidian or black tourmaline in your left pocket to deflect the harsh energy.</p>
 </div>
 <div class="card">
 <h3><span>⏰</span>Best Hour</h3>
-<p><b>Chen Hour (7–9 AM)</b> — The Open Door and Heavenly Heart star align. Schedule critical meetings, launches, and important decisions in this window.</p>
+<p><b>Wu Hour (11 AM–1 PM)</b> — The Open Door converges with the Heavenly Assistance star at high noon. This is your golden window: schedule interviews, launch products, sign agreements, or make your most important ask of the day. The cosmos amplifies intention during this hour.</p>
 </div>
 </div>
 </div>
@@ -146,8 +146,8 @@ footer a{color:var(--gold);text-decoration:none}
 <h2>🌙 Zhou Gong — Dream Symbol of the Day</h2>
 <p class="byline">The Duke of Zhou interprets the symbol the cosmos sends tonight</p>
 <div class="card" id="dreamCard">
-<h3><span>🐍</span>Today's Symbol: <span class="gold">Snake</span></h3>
-<p>If you dream of a snake tonight, pay close attention. Zhou Gong says: a snake in dreams signals transformation approaching. If the snake is coiled — hidden wisdom awaits discovery. If it strikes — a suppressed truth will surface within three days. Green snake = financial windfall. Black snake = spiritual test. White snake = romantic revelation. Do not fear the serpent — it is the messenger of your own hidden power awakening.</p>
+<h3><span>🕊️</span>Today's Symbol: <span class="gold">Flying</span></h3>
+<p>If you dream of flying tonight, the Duke of Zhou speaks of liberation and ambition. Flying with ease above familiar landscapes signals that a long-standing restriction in your waking life is about to dissolve — freedom arrives within seven days. Struggling to stay aloft, flapping desperately against gravity? You are fighting a battle already won; surrender the need to control outcomes and trust the current carrying you. Flying through clouds indicates hidden knowledge about to break through — pay attention to sudden insights tomorrow morning. If you fly over water, financial news arrives from an unexpected source. If you soar above mountains, a career elevation is imminent. And if you fly alongside another person, that relationship is destined for a deeper chapter. Tonight, before sleep, whisper: "I release what weighs me down" — and let the dream carry you skyward.</p>
 </div>
 </div>
 
@@ -156,38 +156,8 @@ footer a{color:var(--gold);text-decoration:none}
 <h2>🏠 Daily Feng Shui Tip</h2>
 <p class="byline">Practical wisdom from the masters</p>
 <div class="card" id="fengshuiCard">
-<h3><span>🪞</span>Clear Your Entryway Mirror</h3>
-<p>Today is ideal for cleaning all mirrors, especially the one facing your front door. Dusty mirrors scatter qi; clean mirrors amplify positive energy entering your home. For extra luck, wipe mirrors with water infused with three slices of fresh orange peel — citrus awakens dormant wealth energy.</p>
-</div>
-</div>
-
-<!-- Face Reading Section -->
-<div class="section">
-<h2>😶 Face Reading — Today's Feature</h2>
-<p class="byline">Chen Tuan reads the map of your face</p>
-<div class="card" id="faceCard">
-<h3><span>👁️</span>Today's Focus: <span class="gold">The Eyebrows</span></h3>
-<p>Your eyebrows reveal your temperament and social fortune. Chen Tuan says: thick, well-shaped brows signal strong vitality and leadership potential today. If your brows are naturally thin, draw confidence from within — inner strength reads brighter than any physical feature. Self-check: are your brows symmetrical? Even slight asymmetry can indicate imbalanced left-brain/right-brain energy. Brush them upward tonight to invite yang energy.</p>
-</div>
-</div>
-
-<!-- Palm Reading Section -->
-<div class="section">
-<h2>✋ Palm Reading — Today's Line</h2>
-<p class="byline">Xu Fu traces the rivers of your palm</p>
-<div class="card" id="palmCard">
-<h3><span>🖐️</span>Today's Line: <span class="gold">The Heart Line</span></h3>
-<p>Xu Fu focuses on the Heart Line — the uppermost horizontal crease running from the edge of your palm beneath the pinky toward the index finger. A long, unbroken Heart Line indicates emotional stability and deep capacity for love. A short line suggests passionate but concentrated emotional expression. Forks at the end? You balance logic and emotion beautifully. Self-check today: trace your Heart Line with your opposite thumb and notice which sections feel tender — those correspond to emotional events still resonating.</p>
-</div>
-</div>
-
-<!-- I Ching Section -->
-<div class="section">
-<h2>☯️ I Ching — Hexagram of the Day</h2>
-<p class="byline">King Wen of Zhou casts the ancient oracle</p>
-<div class="card" id="ichingCard">
-<h3><span>🪙</span>Hexagram <span class="gold">#1 — Qián / The Creative</span></h3>
-<p><b>乾 — The Creative (Heaven over Heaven).</b> King Wen's judgment: "The Creative works sublime success, furthering through perseverance." Today, the primal yang energy of Hexagram 1 dominates. This hexagram speaks of pure creative force — the dragon soaring through the heavens. Practical advice: initiate, don't react. The energy supports bold beginnings. Whatever you've been hesitating to start, today's cosmic current carries you forward. The noble person "works on himself and never ceases."</p>
+<h3><span>🌿</span>Activate the Southeast Wealth Corner with Living Green</h3>
+<p>Today's Water-dominant energy makes this the perfect day to place a lush, healthy plant in the southeast corner of your living room or office. The southeast governs wealth and prosperity in classical Feng Shui — adding living wood energy here on a Water day creates a powerful generative cycle (Water → Wood → Growth). A money plant (pachira aquatica), lucky bamboo with 5 or 8 stalks, or a jade plant are ideal choices. For extra activation, place three copper coins beneath the pot and whisper your financial intention as you water it for the first time. If you already have a plant there, trim any yellowing leaves today — dead foliage blocks the flow, while fresh green amplifies it.</p>
 </div>
 </div>
 
@@ -204,39 +174,40 @@ footer a{color:var(--gold);text-decoration:none}
 </footer>
 
 <script>
-// Set today's date
+// Set today's date dynamically
 var d=new Date();
-document.getElementById('dailyDate').textContent=d.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+var dateEl=document.getElementById('dailyDate');
+var baziEl=document.getElementById('baziByline');
+var dateStr=d.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+dateEl.textContent=dateStr;
+baziEl.textContent='Ge Xuan decodes the Five Elements for '+dateStr;
 
 // Masters
 var masters=[
 {emoji:'🔮',name:'Zhang Daoling',title:'Ziwei Master'},
 {emoji:'⚖️',name:'Ge Xuan',title:'Bazi Alchemist'},
 {emoji:'🧭',name:'Sa Shoujian',title:'Qimen Strategist'},
-{emoji:'📜',name:'Xu Xun',title:'The Scribe'},
-{emoji:'😶',name:'Chen Tuan',title:'Face Reader'},
-{emoji:'✋',name:'Xu Fu',title:'Palm Reader'},
-{emoji:'☯️',name:'King Wen',title:'I Ching Sage'},
-{emoji:'🏔️',name:'Guo Pu',title:'Feng Shui Master'}
+{emoji:'📜',name:'Xu Xun',title:'The Scribe'}
 ];
 document.getElementById('mastersRow').innerHTML=masters.map(function(m){
 return '<div class="master-badge"><div class="avatar">'+m.emoji+'</div><div class="name"><b>'+m.name+'</b>'+m.title+'</div></div>';
 }).join('');
 
-// Zodiac data
+// FRESH ZODIAC FORTUNES — June 10, 2026
+// Great signs: Tiger, Dragon, Monkey, Pig (NONE overlap with yesterday's Great: Rat, Rabbit, Goat, Dog)
 var zodiacs=[
-{name:'Rat',cn:'鼠',emoji:'🐀',luck:'Great',msg:'Social connections bring unexpected opportunities. Accept every invitation today — your next big break arrives through a friend of a friend.'},
-{name:'Ox',cn:'牛',emoji:'🐂',luck:'Good',msg:'Steady progress at work. A long-term project nears completion. Resist the urge to rush the final steps — patience earns respect from superiors.'},
-{name:'Tiger',cn:'虎',emoji:'🐅',luck:'Fair',msg:'Minor friction with colleagues. Hold your tongue before noon. After 2 PM, clarity returns and the conflict resolves naturally.'},
-{name:'Rabbit',cn:'兔',emoji:'🐇',luck:'Great',msg:'Romantic energy surges. Singles: eye contact with a stranger sparks something real. Couples: a small gesture of appreciation deepens your bond tenfold.'},
-{name:'Dragon',cn:'龙',emoji:'🐉',luck:'Good',msg:'Your natural charisma peaks today. Lead the meeting, pitch the idea, make the ask. People want to say yes to you.'},
-{name:'Snake',cn:'蛇',emoji:'🐍',luck:'Fair',msg:'Double-check all written communication. A misplaced word could cause misunderstanding. Trust your intuition on financial matters — your gut is rarely wrong.'},
-{name:'Horse',cn:'马',emoji:'🐴',luck:'Good',msg:'Physical energy runs high. Channel it into exercise or outdoor activity. A chance encounter during your workout brings valuable career information.'},
-{name:'Goat',cn:'羊',emoji:'🐐',luck:'Great',msg:'Creative inspiration flows freely. Start that art project, write that poem, redecorate that room. Your aesthetic sense is unusually sharp today.'},
-{name:'Monkey',cn:'猴',emoji:'🐒',luck:'Fair',msg:'A minor financial decision needs attention. Review subscriptions and recurring expenses. Cut one unnecessary cost — the savings compound faster than you think.'},
-{name:'Rooster',cn:'鸡',emoji:'🐓',luck:'Good',msg:'Your organizational skills shine. Reorganize your workspace, sort your files, clear your inbox. The clarity you create today pays dividends all week.'},
-{name:'Dog',cn:'狗',emoji:'🐕',luck:'Great',msg:'Loyalty is rewarded. A friend or colleague you helped in the past returns the favor in an unexpected and meaningful way. Accept graciously.'},
-{name:'Pig',cn:'猪',emoji:'🐖',luck:'Poor',msg:'Energy dips. Postpone major decisions. Rest, reflect, recharge. Tomorrow\'s stars align more favorably — today is for self-care, not conquest.'}
+{name:'Rat',cn:'鼠',emoji:'🐀',luck:'Good',msg:'Your analytical instincts are unusually sharp today. Review that contract, audit those numbers, fact-check that proposal — a detail others overlook could save you significant money before the week ends.'},
+{name:'Ox',cn:'牛',emoji:'🐂',luck:'Good',msg:'An old mentor or respected elder reaches out unexpectedly. Listen with full attention — their advice, though wrapped in nostalgia, contains the precise key to your current dilemma.'},
+{name:'Tiger',cn:'虎',emoji:'🐅',luck:'Great',msg:'Fortune favors the bold. That daring idea you have been nursing in private? Today\'s stars align for a courageous leap. Present it to decision-makers before 3 PM for maximum cosmic backing.'},
+{name:'Rabbit',cn:'兔',emoji:'🐇',luck:'Poor',msg:'Emotional fog clouds your judgment before noon. Delay responding to provocative messages and postpone sensitive conversations. Clarity returns with the afternoon sun — patience is your armor today.'},
+{name:'Dragon',cn:'龙',emoji:'🐉',luck:'Great',msg:'Your magnetic presence draws admirers and opportunities in equal measure. Accept the invitation, say yes to the collaboration, post your work publicly. The spotlight belongs to you — do not deflect it.'},
+{name:'Snake',cn:'蛇',emoji:'🐍',luck:'Good',msg:'A financial puzzle solves itself if you stop forcing the answer. Step back, sleep on it, and trust your intuition. The numbers will make sense by evening — your subconscious has already done the math.'},
+{name:'Horse',cn:'马',emoji:'🐴',luck:'Good',msg:'Movement brings luck. Even a small change of scenery — work from a café, take a different route home, browse a store you have never entered — triggers a serendipitous encounter that shifts your trajectory.'},
+{name:'Goat',cn:'羊',emoji:'🐐',luck:'Fair',msg:'Creative block meets its match in stillness. Step away from the canvas, the draft, the blank page. A walk through greenery or a playful moment with a child unlocks the perspective you have been forcing.'},
+{name:'Monkey',cn:'猴',emoji:'🐒',luck:'Great',msg:'Your wit is a skeleton key today. Crack the joke, tell the story, break the awkward silence. A casual remark in an unexpected moment opens a door to a valuable new connection — possibly a future collaborator.'},
+{name:'Rooster',cn:'鸡',emoji:'🐓',luck:'Fair',msg:'Perfectionism is both your gift and your trap. Today, done beats perfect. Ship the work at 90%, send the message without the fifth revision. Speed creates momentum that precision alone cannot match.'},
+{name:'Dog',cn:'狗',emoji:'🐕',luck:'Fair',msg:'A friend tests your limits with an unreasonable request. Set boundaries with warmth, not guilt. True loyalty means honesty about what you can give — a relationship built on resentment is already broken.'},
+{name:'Pig',cn:'猪',emoji:'🐖',luck:'Great',msg:'Romance and creativity dance together under today\'s stars. Plan something unexpected for your partner, or if single, try a new hobby that puts you in social spaces. Love finds you when you are radiantly, unapologetically yourself.'}
 ];
 
 var luckColors={'Great':'luck-great','Good':'luck-good','Fair':'luck-fair','Poor':'luck-poor','Avoid':'luck-avoid'};
