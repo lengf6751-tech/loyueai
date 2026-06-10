@@ -5,8 +5,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daily Oracle — Tianling Pavilion | Free Daily Chinese Zodiac & Fortune</title>
-<meta name="description" content="Daily Chinese zodiac forecasts, Bazi fortune tips, Zhou Gong dream symbol of the day, and Qimen auspicious directions — delivered daily by the Four Divine Masters.">
-<meta name="keywords" content="daily chinese zodiac, today horoscope, daily fortune, bazi today, dream of the day, feng shui daily, qimen direction">
+<meta name="description" content="Daily Chinese zodiac, Bazi fortune, Qimen directions, Zhou Gong dream symbols, I Ching hexagrams, face reading, palm reading, and Feng Shui tips — delivered daily by 8 divine masters for global audience.">
+<meta name="keywords" content="daily chinese zodiac, today horoscope, daily fortune, bazi today, dream of the day, feng shui daily, qimen direction, i ching daily, face reading, palm reading">
 <link rel="canonical" href="https://loyueai.com/daily/">
 <meta property="og:title" content="Daily Oracle — Four Masters Deliver Your Fortune">
 <meta property="og:description" content="Today's Chinese zodiac, Bazi, Qimen, and dream oracle from the Tianling Pavilion.">
@@ -96,7 +96,7 @@ footer a{color:var(--gold);text-decoration:none}
 <div class="hero">
 <p class="date" id="dailyDate">June 11, 2026</p>
 <h1>Today's <span class="gold">Oracle</span></h1>
-<p class="subtitle">Four divine masters convene each dawn to read the cosmic currents of the day ahead.</p>
+<p class="subtitle">Eight divine masters convene each dawn — delivering wisdom across Chinese metaphysics for global seekers.</p>
 <div class="masters-row" id="mastersRow">
 <!-- Filled by JS -->
 </div>
@@ -161,6 +161,36 @@ footer a{color:var(--gold);text-decoration:none}
 </div>
 </div>
 
+<!-- Face Reading Section -->
+<div class="section">
+<h2>😶 Face Reading — Today's Feature</h2>
+<p class="byline">Chen Tuan reads the map of your face</p>
+<div class="card" id="faceCard">
+<h3><span>👁️</span>Today's Focus: <span class="gold">The Eyebrows</span></h3>
+<p>Your eyebrows reveal your temperament and social fortune. Chen Tuan says: thick, well-shaped brows signal strong vitality and leadership potential today. If your brows are naturally thin, draw confidence from within — inner strength reads brighter than any physical feature. Self-check: are your brows symmetrical? Even slight asymmetry can indicate imbalanced left-brain/right-brain energy. Brush them upward tonight to invite yang energy.</p>
+</div>
+</div>
+
+<!-- Palm Reading Section -->
+<div class="section">
+<h2>✋ Palm Reading — Today's Line</h2>
+<p class="byline">Xu Fu traces the rivers of your palm</p>
+<div class="card" id="palmCard">
+<h3><span>🖐️</span>Today's Line: <span class="gold">The Heart Line</span></h3>
+<p>Xu Fu focuses on the Heart Line — the uppermost horizontal crease running from the edge of your palm beneath the pinky toward the index finger. A long, unbroken Heart Line indicates emotional stability and deep capacity for love. A short line suggests passionate but concentrated emotional expression. Forks at the end? You balance logic and emotion beautifully. Self-check today: trace your Heart Line with your opposite thumb and notice which sections feel tender — those correspond to emotional events still resonating.</p>
+</div>
+</div>
+
+<!-- I Ching Section -->
+<div class="section">
+<h2>☯️ I Ching — Hexagram of the Day</h2>
+<p class="byline">King Wen of Zhou casts the ancient oracle</p>
+<div class="card" id="ichingCard">
+<h3><span>🪙</span>Hexagram <span class="gold">#1 — Qián / The Creative</span></h3>
+<p><b>乾 — The Creative (Heaven over Heaven).</b> King Wen's judgment: "The Creative works sublime success, furthering through perseverance." Today, the primal yang energy of Hexagram 1 dominates. This hexagram speaks of pure creative force — the dragon soaring through the heavens. Practical advice: initiate, don't react. The energy supports bold beginnings. Whatever you've been hesitating to start, today's cosmic current carries you forward. The noble person "works on himself and never ceases."</p>
+</div>
+</div>
+
 <!-- CTA -->
 <div class="section" style="text-align:center">
 <a href="/" style="display:inline-block;padding:14px 36px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#06060c;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px">Get Your Full Destiny Reading →</a>
@@ -183,7 +213,11 @@ var masters=[
 {emoji:'🔮',name:'Zhang Daoling',title:'Ziwei Master'},
 {emoji:'⚖️',name:'Ge Xuan',title:'Bazi Alchemist'},
 {emoji:'🧭',name:'Sa Shoujian',title:'Qimen Strategist'},
-{emoji:'📜',name:'Xu Xun',title:'The Scribe'}
+{emoji:'📜',name:'Xu Xun',title:'The Scribe'},
+{emoji:'😶',name:'Chen Tuan',title:'Face Reader'},
+{emoji:'✋',name:'Xu Fu',title:'Palm Reader'},
+{emoji:'☯️',name:'King Wen',title:'I Ching Sage'},
+{emoji:'🏔️',name:'Guo Pu',title:'Feng Shui Master'}
 ];
 document.getElementById('mastersRow').innerHTML=masters.map(function(m){
 return '<div class="master-badge"><div class="avatar">'+m.emoji+'</div><div class="name"><b>'+m.name+'</b>'+m.title+'</div></div>';
