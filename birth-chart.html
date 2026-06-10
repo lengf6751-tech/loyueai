@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chinese Birth Chart Calculator — Free Zodiac, Element & Four Pillars | Tianling Pavilion</title>
+<meta name="description" content="Free Chinese birth chart calculator. Enter your birth date and time to instantly discover your zodiac animal, ruling element, Day Master, and complete Four Pillars chart.">
+<meta name="keywords" content="chinese birth chart calculator, bazi calculator, four pillars calculator, chinese zodiac calculator, chinese element calculator">
+<link rel="canonical" href="https://loyueai.com/birth-chart.html">
+<meta property="og:title" content="Chinese Birth Chart Calculator — Free Zodiac, Element & Four Pillars">
+<meta property="og:description" content="Enter your birth date and time to discover your zodiac animal, element, and Four Pillars chart — instantly and free.">
+<meta property="og:image" content="https://loyueai.com/blog/thumbs/chinese-birth-chart.jpg">
+<meta property="og:url" content="https://loyueai.com/birth-chart.html">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Tianling Pavilion">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#06060c;--card-bg:rgba(201,169,110,.03);--gold:#c9a96e;--gold-light:#d4a574;--gold-dim:rgba(201,169,110,.12);--text:#e8e0d5;--text-dim:#8a8278}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+h1,h2{font-family:'Noto Serif SC',serif}
+nav{padding:16px 24px;width:100%;max-width:900px;display:flex;align-items:center;gap:12px}
+nav a{color:var(--text-dim);text-decoration:none;font-size:14px;transition:color .2s}
+nav a:hover{color:var(--gold)}
+nav img{height:24px;width:24px;object-fit:contain}
+main{flex:1;width:100%;max-width:900px;padding:20px 24px 60px;display:flex;flex-direction:column;align-items:center}
+h1{font-size:32px;text-align:center;margin-bottom:8px}
+h1 .gold{color:var(--gold)}
+.subtitle{color:var(--text-dim);text-align:center;margin-bottom:32px;font-size:15px}
+
+.calc-card{width:100%;max-width:600px;background:var(--card-bg);border:1px solid var(--gold-dim);border-radius:20px;padding:36px 32px}
+.calc-card h2{font-size:18px;margin-bottom:8px;text-align:center}
+.calc-card h2 .emoji{font-size:22px}
+.calc-row{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.calc-row label{display:flex;flex-direction:column;flex:1;min-width:80px;gap:4px;font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}
+.calc-row input,.calc-row select{background:rgba(201,169,110,.08);border:1px solid var(--gold-dim);border-radius:8px;padding:10px 12px;color:var(--text);font-size:15px;width:100%}
+.calc-row input:focus,.calc-row select:focus{border-color:var(--gold);outline:none}
+.calc-row select{appearance:none;-webkit-appearance:none;cursor:pointer}
+.calc-btn{width:100%;background:var(--gold);color:#06060c;border:none;border-radius:10px;padding:14px;font-size:17px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:6px;font-family:inherit}
+.calc-btn:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,169,110,.2)}
+
+.result{display:none;width:100%;max-width:600px;margin-top:24px}
+.zodiac-hero{text-align:center;padding:24px;background:var(--card-bg);border:1px solid var(--gold-dim);border-radius:20px;margin-bottom:16px}
+.zodiac-hero .animal-emoji{font-size:72px;line-height:1;margin-bottom:8px}
+.zodiac-hero .animal-name{font-size:28px;font-weight:700;font-family:'Noto Serif SC',serif;margin-bottom:4px}
+.zodiac-hero .animal-cn{font-size:18px;color:var(--gold);font-family:'Noto Serif SC',serif;margin-bottom:4px}
+.zodiac-hero .animal-trait{font-size:14px;color:var(--text-dim)}
+
+.pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+.pillar{background:var(--card-bg);border:1px solid var(--gold-dim);border-radius:14px;padding:18px 12px;text-align:center}
+.pillar .p-label{font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.pillar .p-chars{font-size:26px;font-weight:700;font-family:'Noto Serif SC',serif;margin-bottom:4px}
+.pillar .p-element{font-size:12px;color:var(--text-dim)}
+.pillar.day-master{border-color:var(--gold);background:rgba(201,169,110,.08)}
+.pillar.day-master .p-label::after{content:' ★';color:var(--gold)}
+
+.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+.info-card{background:var(--card-bg);border:1px solid var(--gold-dim);border-radius:14px;padding:16px;text-align:center}
+.info-card .i-label{font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.info-card .i-value{font-size:18px;font-weight:700}
+.info-card .i-sub{font-size:12px;color:var(--text-dim);margin-top:2px}
+
+.element-bar{display:flex;gap:6px;margin-top:16px}
+.element-item{flex:1;text-align:center;padding:8px 4px;border-radius:8px;font-size:11px;background:rgba(201,169,110,.03);border:1px solid var(--gold-dim)}
+.element-item.active{background:rgba(201,169,110,.1);border-color:var(--gold);font-weight:700}
+.element-item .e-icon{font-size:18px;display:block;margin-bottom:2px}
+
+.cta-row{text-align:center;margin-top:20px}
+.cta-row a{color:var(--gold);text-decoration:none;font-size:14px;border-bottom:1px solid var(--gold-dim);padding-bottom:2px;transition:border-color .2s}
+.cta-row a:hover{border-color:var(--gold)}
+
+@media(max-width:500px){.pillars-grid{grid-template-columns:repeat(2,1fr)}.info-grid{grid-template-columns:1fr}nav{padding:12px 16px}h1{font-size:24px}.calc-card{padding:24px 20px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/"><img src="/images/logo-nav.png" alt="">Tianling Pavilion</a>
+  <span style="color:var(--text-dim);font-size:12px">/</span>
+  <span>Birth Chart Calculator</span>
+</nav>
+
+<main>
+<h1>Chinese <span class="gold">Birth Chart</span> Calculator</h1>
+<p class="subtitle">Enter your birth date & time — instantly reveal your zodiac, element, and Four Pillars</p>
+
+<div class="calc-card">
+  <div class="calc-row">
+    <label>Year<input type="number" id="byear" placeholder="1990" min="1900" max="2030" value="1990"></label>
+    <label>Month<select id="bmonth"></select></label>
+    <label>Day<select id="bday"></select></label>
+    <label>Hour (0–23)<input type="number" id="bhour" placeholder="12" min="0" max="23" value="12"></label>
+  </div>
+  <button class="calc-btn" onclick="calculate()">🔮 Calculate My Birth Chart</button>
+</div>
+
+<div class="result" id="result"></div>
+
+<div class="cta-row" style="margin-top:40px">
+  <a href="/blog/divination/chinese-birth-chart.html">📖 Read the full Birth Chart guide →</a>
+  &nbsp;·&nbsp;
+  <a href="/#order">🔮 Get a complete Bazi + Ziwei + Qimen reading →</a>
+</div>
+</main>
+
+<script>
+(function(){
+  var m=document.getElementById("bmonth");
+  ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"].forEach(function(n,i){
+    var o=document.createElement("option");o.value=i+1;o.text=n;m.appendChild(o);
+  });
+  var d=document.getElementById("bday");
+  for(var i=1;i<=31;i++){var o=document.createElement("option");o.value=i;o.text=i;d.appendChild(o)}
+})();
+
+var Z=["Rat","Ox","Tiger","Rabbit","Dragon","Snake","Horse","Goat","Monkey","Rooster","Dog","Pig"];
+var ZC=["鼠","牛","虎","兔","龙","蛇","马","羊","猴","鸡","狗","猪"];
+var ZE=["🐀","🐂","🐅","🐇","🐉","🐍","🐴","🐐","🐒","🐓","🐕","🐖"];
+var ZT={"Rat":"Witty, adaptable, charming, resourceful","Ox":"Steadfast, reliable, strong, patient","Tiger":"Bold, passionate, fearless, competitive","Rabbit":"Gentle, elegant, diplomatic, lucky","Dragon":"Powerful, charismatic, ambitious, confident","Snake":"Wise, intuitive, mysterious, sophisticated","Horse":"Free-spirited, energetic, adventurous, independent","Goat":"Creative, kind, peaceful, artistic","Monkey":"Clever, witty, playful, inventive","Rooster":"Confident, honest, punctual, organized","Dog":"Loyal, brave, just, protective","Pig":"Generous, warm, honest, compassionate"};
+var S=["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"];
+var B=["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"];
+var E=["Wood","Fire","Earth","Metal","Water"];
+var EC=["木","火","土","金","水"];
+var EE=["🌳","🔥","🏔️","⚙️","💧"];
+var MB=[2,3,4,5,6,7,8,9,10,11,0,1];
+var HB=[0,1,2,3,4,5,6,7,8,9,10,11]; // 子时=0
+
+function calculate(){
+  var y=parseInt(document.getElementById("byear").value);
+  var m=parseInt(document.getElementById("bmonth").value);
+  var d=parseInt(document.getElementById("bday").value);
+  var h=parseInt(document.getElementById("bhour").value);
+  if(!y||!m||!d||isNaN(h)){alert("Please fill in all fields.");return}
+
+  var animal=Z[(y-4)%12];
+  var animalCN=ZC[(y-4)%12];
+  var animalE=ZE[(y-4)%12];
+  var trait=ZT[animal];
+
+  // Year pillar
+  var ys=(y-4)%10, yb=(y-4)%12;
+  var ye=Math.floor(ys/2);
+
+  // Month pillar
+  var ms=(ys*2+m-1)%10, mb=MB[m-1];
+  var me=Math.floor(ms/2);
+
+  // Day pillar (approximate)
+  var ds=(y+Math.floor(y/4)+(m+1)*26/10+d-1)%10;
+  ds=Math.floor(ds);
+  if(ds<0)ds+=10;
+  var db=((y-4)+(m-1)*2+d-1)%12;
+  if(db<0)db+=12;
+  var de=Math.floor(ds/2);
+
+  // Hour pillar
+  var hb=Math.floor((h+1)/2)%12;
+  var hs=(ds*2+hb)%10;
+  if(hs<0)hs+=10;
+  var he=Math.floor(hs/2);
+
+  // Element counts
+  var counts=[0,0,0,0,0];
+  counts[ye]++;counts[me]++;counts[de]++;counts[he]++;
+
+  var html='<div class="zodiac-hero"><div class="animal-emoji">'+animalE+'</div><div class="animal-name">'+animal+'</div><div class="animal-cn">'+animalCN+' · '+E[ye]+' '+animal+'</div><div class="animal-trait">'+trait+'</div></div>';
+
+  html+='<div class="pillars-grid">';
+  html+='<div class="pillar"><div class="p-label">Year</div><div class="p-chars">'+S[ys]+B[yb]+'</div><div class="p-element">'+E[ye]+' ('+EC[ye]+')</div></div>';
+  html+='<div class="pillar"><div class="p-label">Month</div><div class="p-chars">'+S[ms]+B[mb]+'</div><div class="p-element">'+E[me]+' ('+EC[me]+')</div></div>';
+  html+='<div class="pillar day-master"><div class="p-label">Day</div><div class="p-chars">'+S[ds]+B[db]+'</div><div class="p-element">'+E[de]+' ('+EC[de]+')</div></div>';
+  html+='<div class="pillar"><div class="p-label">Hour</div><div class="p-chars">'+S[hs]+B[hb]+'</div><div class="p-element">'+E[he]+' ('+EC[he]+')</div></div>';
+  html+='</div>';
+
+  html+='<div class="info-grid">';
+  html+='<div class="info-card"><div class="i-label">Day Master ★</div><div class="i-value">'+EE[de]+' '+E[de]+'</div><div class="i-sub">'+EC[de]+' · Your Core Self</div></div>';
+  html+='<div class="info-card"><div class="i-label">Year Element</div><div class="i-value">'+EE[ye]+' '+E[ye]+'</div><div class="i-sub">'+EC[ye]+' · External Personality</div></div>';
+  html+='</div>';
+
+  html+='<div class="element-bar">';
+  for(var i=0;i<5;i++){
+    html+='<div class="element-item'+(i===de?' active':'')+'"><span class="e-icon">'+EE[i]+'</span>'+E[i]+'<br><small>'+counts[i]+' pillar'+(counts[i]!==1?'s':'')+'</small></div>';
+  }
+  html+='</div>';
+
+  document.getElementById("result").innerHTML=html;
+  document.getElementById("result").style.display="block";
+  document.getElementById("result").scrollIntoView({behavior:"smooth"});
+}
+</script>
+</body>
+</html>
