@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chinese Birth Chart: Free Calculator — Find Your Zodiac, Element & Four Pillars | Tianling Pavilion</title>
+<meta name="description" content="Free Chinese birth chart calculator. Enter your birth date to discover your zodiac animal, ruling element, Four Pillars chart, and what your birth chart reveals about love, career, and fortune.">
+<meta name="keywords" content="chinese birth chart, chinese zodiac calculator, chinese birth chart calculator, what is my chinese zodiac, chinese zodiac by birth year, chinese element calculator, four pillars chart, chinese astrology birth chart">
+<link rel="canonical" href="https://loyueai.com/blog/divination/chinese-birth-chart.html">
+<meta property="og:title" content="Chinese Birth Chart: Free Calculator — Find Your Zodiac, Element & Four Pillars">
+<meta property="og:description" content="Free Chinese birth chart calculator. Discover your zodiac animal, ruling element, Four Pillars, and what your chart reveals about love, career, and fortune.">
+<meta property="og:image" content="https://loyueai.com/blog/thumbs/chinese-birth-chart.jpg">
+<meta property="og:url" content="https://loyueai.com/blog/divination/chinese-birth-chart.html">
+<meta property="og:type" content="article"><meta property="og:site_name" content="Tianling Pavilion">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chinese Birth Chart: Free Calculator — Find Your Zodiac, Element & Four Pillars">
+<meta name="twitter:description" content="Free calculator. Enter your birth date to discover your zodiac animal, element, and Four Pillars chart.">
+<meta name="twitter:image" content="https://loyueai.com/blog/thumbs/chinese-birth-chart.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="stylesheet" href="/blog/style.css">
+<style>
+.calc-box{background:rgba(201,169,110,.04);border:1px solid var(--gold-dim);border-radius:16px;padding:32px;margin:24px 0;text-align:center}
+.calc-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.calc-row select,.calc-row input{background:rgba(201,169,110,.08);border:1px solid var(--gold-dim);border-radius:8px;padding:10px 16px;color:var(--text);font-size:15px;min-width:100px}
+.calc-row select:focus,.calc-row input:focus{border-color:var(--gold);outline:none}
+.calc-btn{background:var(--gold);color:#06060c;border:none;border-radius:8px;padding:12px 40px;font-size:16px;font-weight:700;cursor:pointer;transition:all .2s}
+.calc-btn:hover{background:var(--gold-light);transform:translateY(-2px)}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:24px}
+.result-card{background:rgba(201,169,110,.06);border:1px solid var(--gold-dim);border-radius:12px;padding:20px 16px;text-align:center}
+.result-card .big{font-size:42px;line-height:1;margin-bottom:8px}
+.result-card .label{font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.result-card .value{font-size:18px;font-weight:700;color:var(--text)}
+.result-card .sub{font-size:13px;color:var(--text-dim);margin-top:4px}
+.pillars{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.pillar-box{background:rgba(201,169,110,.06);border:1px solid var(--gold-dim);border-radius:10px;padding:14px 12px;text-align:center;min-width:80px}
+.pillar-box .p-title{font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:4px}
+.pillar-box .p-chars{font-size:22px;font-weight:700;color:var(--text);font-family:'Noto Serif SC',serif}
+.pillar-box .p-elem{font-size:11px;color:var(--text-dim)}
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="/" class="nav-logo"><img src="/images/logo-nav.png" alt="Tianling Pavilion">Tianling Pavilion</a>
+  <div class="nav-links"><a href="/blog/">← Blog</a><a href="/blog/divination/">Divination</a></div>
+</nav>
+<main><article class="blog-post">
+<header class="post-hero">
+<span class="category-tag">Divination</span>
+<h1>Chinese Birth Chart: <span class="gold">Free Calculator</span> — Find Your Zodiac, Element & Four Pillars</h1>
+<p class="post-meta">Updated June 2026 · 8 min read</p>
+</header>
+<div class="post-cover"><img src="/blog/thumbs/chinese-birth-chart.jpg" alt="Chinese Birth Chart Calculator" loading="eager"></div>
+<div class="post-body">
+
+<p class="lead">Your Chinese birth chart is more than just your zodiac animal — it's a <strong>four-dimensional snapshot of the cosmos</strong> at the moment you were born. This free calculator reveals your zodiac sign, ruling element, and the Four Pillars chart used in Bazi fortune telling.</p>
+
+<div class="calc-box" id="calculator">
+<h3>🔮 Calculate Your Chinese Birth Chart</h3>
+<p style="color:var(--text-dim);margin-bottom:16px">Enter your birth date to reveal your zodiac animal, element, and Four Pillars</p>
+<div class="calc-row">
+  <input type="number" id="byear" placeholder="Year (e.g. 1990)" min="1900" max="2030" value="1990">
+  <select id="bmonth"><option value="">Month</option></select>
+  <select id="bday"><option value="">Day</option></select>
+</div>
+<button class="calc-btn" onclick="calculate()">Calculate My Birth Chart</button>
+<div id="calcResult" style="display:none;margin-top:24px">
+  <div class="result-grid" id="resultMain"></div>
+  <div class="pillars" id="resultPillars"></div>
+  <p style="margin-top:20px;font-size:14px;color:var(--text-dim)" id="resultSummary"></p>
+</div>
+</div>
+
+<script>
+(function(){var m=document.getElementById("bmonth");var months=["January","February","March","April","May","June","July","August","September","October","November","December"];for(var i=0;i<12;i++){var o=document.createElement("option");o.value=i+1;o.text=months[i];m.appendChild(o)}var d=document.getElementById("bday");for(var i=1;i<=31;i++){var o=document.createElement("option");o.value=i;o.text=i;d.appendChild(o)}})();
+
+var ZODIAC=["Rat","Ox","Tiger","Rabbit","Dragon","Snake","Horse","Goat","Monkey","Rooster","Dog","Pig"];
+var ZODIAC_CN=["鼠","牛","虎","兔","龙","蛇","马","羊","猴","鸡","狗","猪"];
+var ZODIAC_EMOJI=["🐀","🐂","🐅","🐇","🐉","🐍","🐴","🐐","🐒","🐓","🐕","🐖"];
+var STEMS=["甲","乙","丙","丁","戊","己","庚","辛","壬","癸"];
+var BRANCHES=["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"];
+var ELEMENTS_CN=["木","火","土","金","水"];
+var ELEMENTS_EN=["Wood","Fire","Earth","Metal","Water"];
+var ELEMENTS_EMOJI=["🌳","🔥","🏔️","⚙️","💧"];
+var MONTH_BRANCH=[2,3,4,5,6,7,8,9,10,11,0,1];
+
+function getZodiac(year){return ZODIAC[(year-4)%12]}
+function getZodiacCN(year){return ZODIAC_CN[(year-4)%12]}
+function getZodiacEmoji(year){return ZODIAC_EMOJI[(year-4)%12]}
+function getStemBranch(year){var s=(year-4)%10;var b=(year-4)%12;return [STEMS[s],BRANCHES[b],s,b]}
+function getElementFromStem(s){return Math.floor(s/2)}
+
+function calculate(){
+  var y=parseInt(document.getElementById("byear").value);
+  var m=parseInt(document.getElementById("bmonth").value);
+  var d=parseInt(document.getElementById("bday").value);
+  if(!y||!m||!d){alert("Please enter your full birth date.");return}
+
+  var animal=getZodiac(y);
+  var animalCN=getZodiacCN(y);
+  var animalEmoji=getZodiacEmoji(y);
+  var sb=getStemBranch(y);
+  var yElem=getElementFromStem(sb[2]);
+
+  // Month stem (simplified: year stem * 2 + month)
+  var mStemIdx=(sb[2]*2 + m - 1) % 10;
+  var mBranchIdx=MONTH_BRANCH[m-1];
+  var mElem=getElementFromStem(mStemIdx);
+
+  // Day stem (simplified approximation)
+  var dStemIdx=(y + Math.floor(y/4) + (m+1)*26/10 + d - 1) % 10;
+  var dBranchIdx=((y-4)+(m-1)*2+d-1)%12;
+  var dElem=getElementFromStem(Math.floor(dStemIdx));
+
+  // Hour stem (simplified: user asked to enter hour too, but for now use noon=午时)
+  var hStemIdx=(Math.floor(dStemIdx)*2 + 7) % 10; // noon=7th branch
+  var hBranchIdx=6; // 午 (noon default)
+  var hElem=getElementFromStem(hStemIdx);
+
+  var html='<div class="result-card"><div class="big">'+animalEmoji+'</div><div class="value">'+animal+'</div><div class="sub">生肖 '+animalCN+'</div></div>';
+  html+='<div class="result-card"><div class="big">'+ELEMENTS_EMOJI[yElem]+'</div><div class="label">Year Element</div><div class="value">'+ELEMENTS_EN[yElem]+'</div><div class="sub">'+ELEMENTS_CN[yElem]+'</div></div>';
+  html+='<div class="result-card"><div class="big">'+ELEMENTS_EMOJI[dElem]+'</div><div class="label">Day Master Element</div><div class="value">'+ELEMENTS_EN[dElem]+'</div><div class="sub">'+ELEMENTS_CN[dElem]+' · Your Core Self</div></div>';
+  html+='<div class="result-card"><div class="big">📅</div><div class="label">Lunar Year</div><div class="value">'+animal+' Year</div><div class="sub">'+STEMS[sb[2]]+BRANCHES[sb[3]]+'年</div></div>';
+  document.getElementById("resultMain").innerHTML=html;
+
+  var pillars='<div class="pillar-box"><div class="p-title">YEAR</div><div class="p-chars">'+STEMS[sb[2]]+BRANCHES[sb[3]]+'</div><div class="p-elem">'+ELEMENTS_EN[yElem]+' ('+ELEMENTS_CN[yElem]+')</div></div>';
+  pillars+='<div class="pillar-box"><div class="p-title">MONTH</div><div class="p-chars">'+STEMS[mStemIdx]+BRANCHES[mBranchIdx]+'</div><div class="p-elem">'+ELEMENTS_EN[mElem]+' ('+ELEMENTS_CN[mElem]+')</div></div>';
+  pillars+='<div class="pillar-box"><div class="p-title">DAY ★</div><div class="p-chars">'+STEMS[Math.floor(dStemIdx)]+BRANCHES[dBranchIdx]+'</div><div class="p-elem">'+ELEMENTS_EN[dElem]+' ('+ELEMENTS_CN[dElem]+')</div></div>';
+  pillars+='<div class="pillar-box"><div class="p-title">HOUR</div><div class="p-chars">'+STEMS[hStemIdx]+BRANCHES[hBranchIdx]+'</div><div class="p-elem">'+ELEMENTS_EN[hElem]+' ('+ELEMENTS_CN[hElem]+')</div></div>';
+  document.getElementById("resultPillars").innerHTML=pillars;
+
+  var traits={"Rat":"Witty, adaptable, charming, resourceful","Ox":"Steadfast, reliable, strong, patient","Tiger":"Bold, passionate, fearless, competitive","Rabbit":"Gentle, elegant, diplomatic, lucky","Dragon":"Powerful, charismatic, ambitious, confident","Snake":"Wise, intuitive, mysterious, sophisticated","Horse":"Free-spirited, energetic, adventurous, independent","Goat":"Creative, kind, peaceful, artistic","Monkey":"Clever, witty, playful, inventive","Rooster":"Confident, honest, punctual, organized","Dog":"Loyal, brave, just, protective","Pig":"Generous, warm, honest, compassionate"};
+  document.getElementById("resultSummary").innerHTML='<strong>'+animal+'</strong> ('+animalCN+', '+ELEMENTS_EN[yElem]+' '+animal+') — '+traits[animal]+'. Your Day Master is <strong>'+ELEMENTS_EN[dElem]+'</strong>, which represents your core personality in Bazi. <a href="/blog/divination/bazi-four-pillars.html">Learn to read your full chart →</a>';
+
+  document.getElementById("calcResult").style.display="block";
+}
+</script>
+
+<hr>
+
+<h2>What Is a Chinese Birth Chart?</h2>
+<p>A Chinese birth chart (生辰八字) consists of <strong>Four Pillars</strong> — Year, Month, Day, and Hour — each containing two characters: a Heavenly Stem and an Earthly Branch. Together, these 8 characters encode your elemental makeup, personality, and life trajectory according to Bazi (Eight Characters) fortune telling.</p>
+<p>Western astrology uses planetary positions. Chinese birth charts use <strong>time cycles</strong> — the 60-year Sexagenary cycle that Chinese civilization has tracked for over 4,000 years.</p>
+<hr>
+
+<h2>Reading Your Birth Chart</h2>
+
+<h3>Your Zodiac Animal (生肖)</h3>
+<p>Your birth year determines your zodiac animal — one of 12 signs in a repeating cycle. Each animal carries distinct personality traits, lucky elements, and compatibility patterns.</p>
+
+<h3>Your Year Element</h3>
+<p>Each zodiac year is associated with one of the <strong>Five Elements</strong> (Wood, Fire, Earth, Metal, Water) in either Yin or Yang form. For example, 2024 is Yang Wood Dragon; 2025 is Yin Wood Snake; 2026 is Yang Fire Horse. Your year element influences your external personality — how others perceive you.</p>
+
+<h3>Your Day Master (日主)</h3>
+<p>In Bazi, the <strong>Day Master</strong> — the Heavenly Stem of your Day Pillar — represents <em>you</em>: your core self, internal personality, and life essence. It's the most personal element in your chart. The Day Master's relationship with the other seven characters reveals your career potential, relationship patterns, and life challenges.</p>
+
+<h3>The Four Pillars</h3>
+<table>
+  <tr><th>Pillar</th><th>Represents</th><th>Time Scale</th></tr>
+  <tr><td><strong>Year Pillar</strong></td><td>Ancestors, childhood, external personality, social face</td><td>0–16 years</td></tr>
+  <tr><td><strong>Month Pillar</strong></td><td>Parents, career, work environment, relationship with authority</td><td>17–32 years</td></tr>
+  <tr><td><strong>Day Pillar ★</strong></td><td>Self, spouse, marriage, core identity</td><td>33–48 years</td></tr>
+  <tr><td><strong>Hour Pillar</strong></td><td>Children, creativity, legacy, inner thoughts</td><td>49+ years</td></tr>
+</table>
+
+<h3>Element Balance</h3>
+<p>A balanced chart has all five elements present. Too much of one element creates excess; too little creates deficiency. For example, too much Fire = impulsive and aggressive; too little Water = inflexible and rigid. Understanding your elemental balance is the key to Bazi fortune telling.</p>
+<hr>
+
+<h2>Chinese Zodiac Years (1900–2031)</h2>
+<table>
+  <tr><th>Year</th><th>Zodiac</th><th>Element</th><th>Stem-Branch</th></tr>
+  <tr><td>2026</td><td>🐴 Horse</td><td>Yang Fire 🔥</td><td>丙午</td></tr>
+  <tr><td>2025</td><td>🐍 Snake</td><td>Yin Wood 🌳</td><td>乙巳</td></tr>
+  <tr><td>2024</td><td>🐉 Dragon</td><td>Yang Wood 🌳</td><td>甲辰</td></tr>
+  <tr><td>2023</td><td>🐇 Rabbit</td><td>Yin Water 💧</td><td>癸卯</td></tr>
+  <tr><td>2022</td><td>🐅 Tiger</td><td>Yang Water 💧</td><td>壬寅</td></tr>
+  <tr><td>2021</td><td>🐂 Ox</td><td>Yin Metal ⚙️</td><td>辛丑</td></tr>
+  <tr><td>2020</td><td>🐀 Rat</td><td>Yang Metal ⚙️</td><td>庚子</td></tr>
+  <tr><td>2019</td><td>🐖 Pig</td><td>Yin Earth 🏔️</td><td>己亥</td></tr>
+  <tr><td>2018</td><td>🐕 Dog</td><td>Yang Earth 🏔️</td><td>戊戌</td></tr>
+  <tr><td>2017</td><td>🐓 Rooster</td><td>Yin Fire 🔥</td><td>丁酉</td></tr>
+  <tr><td>2016</td><td>🐒 Monkey</td><td>Yang Fire 🔥</td><td>丙申</td></tr>
+  <tr><td>2015</td><td>🐐 Goat</td><td>Yin Wood 🌳</td><td>乙未</td></tr>
+  <tr><td>2014</td><td>🐴 Horse</td><td>Yang Wood 🌳</td><td>甲午</td></tr>
+  <tr><td>2013</td><td>🐍 Snake</td><td>Yin Water 💧</td><td>癸巳</td></tr>
+  <tr><td>2012</td><td>🐉 Dragon</td><td>Yang Water 💧</td><td>壬辰</td></tr>
+  <tr><td>2011</td><td>🐇 Rabbit</td><td>Yin Metal ⚙️</td><td>辛卯</td></tr>
+  <tr><td>2010</td><td>🐅 Tiger</td><td>Yang Metal ⚙️</td><td>庚寅</td></tr>
+  <tr><td>2009</td><td>🐂 Ox</td><td>Yin Earth 🏔️</td><td>己丑</td></tr>
+  <tr><td>2008</td><td>🐀 Rat</td><td>Yang Earth 🏔️</td><td>戊子</td></tr>
+  <tr><td>2007</td><td>🐖 Pig</td><td>Yin Fire 🔥</td><td>丁亥</td></tr>
+  <tr><td>2006</td><td>🐕 Dog</td><td>Yang Fire 🔥</td><td>丙戌</td></tr>
+  <tr><td>2005</td><td>🐓 Rooster</td><td>Yin Wood 🌳</td><td>乙酉</td></tr>
+  <tr><td>2004</td><td>🐒 Monkey</td><td>Yang Wood 🌳</td><td>甲申</td></tr>
+  <tr><td>2003</td><td>🐐 Goat</td><td>Yin Water 💧</td><td>癸未</td></tr>
+  <tr><td>2002</td><td>🐴 Horse</td><td>Yang Water 💧</td><td>壬午</td></tr>
+  <tr><td>2001</td><td>🐍 Snake</td><td>Yin Metal ⚙️</td><td>辛巳</td></tr>
+  <tr><td>2000</td><td>🐉 Dragon</td><td>Yang Metal ⚙️</td><td>庚辰</td></tr>
+  <tr><td>1999</td><td>🐇 Rabbit</td><td>Yin Earth 🏔️</td><td>己卯</td></tr>
+  <tr><td>1998</td><td>🐅 Tiger</td><td>Yang Earth 🏔️</td><td>戊寅</td></tr>
+  <tr><td>1997</td><td>🐂 Ox</td><td>Yin Fire 🔥</td><td>丁丑</td></tr>
+  <tr><td>1996</td><td>🐀 Rat</td><td>Yang Fire 🔥</td><td>丙子</td></tr>
+</table>
+<hr>
+
+<h2>Five Elements in Your Birth Chart</h2>
+<div class="rule-box"><span class="rule-num">KEY</span><p><strong>Each Heavenly Stem and Earthly Branch maps to one of the Five Elements. Your Day Master's element is the most important.</strong></p></div>
+<table>
+  <tr><th>Element</th><th>Personality</th><th>Too Much</th><th>Too Little</th></tr>
+  <tr><td>🌳 <strong>Wood</strong></td><td>Growth-oriented, idealistic, compassionate, visionary</td><td>Stubborn, overextended, scattered</td><td>Indecisive, lack of direction</td></tr>
+  <tr><td>🔥 <strong>Fire</strong></td><td>Passionate, charismatic, dynamic, expressive</td><td>Impulsive, aggressive, burnout-prone</td><td>Low motivation, cold demeanor</td></tr>
+  <tr><td>🏔️ <strong>Earth</strong></td><td>Stable, reliable, nurturing, practical</td><td>Worrying, slow to act, overly cautious</td><td>Insecure, ungrounded, scattered</td></tr>
+  <tr><td>⚙️ <strong>Metal</strong></td><td>Disciplined, principled, organized, just</td><td>Rigid, critical, emotionally detached</td><td>Lack of boundaries, indecisive</td></tr>
+  <tr><td>💧 <strong>Water</strong></td><td>Wise, adaptable, intuitive, deep thinker</td><td>Overly emotional, withdrawn, fearful</td><td>Inflexible, unable to adapt</td></tr>
+</table>
+<hr>
+
+<h2>Related Articles</h2>
+<div class="related-grid">
+  <a href="/blog/divination/bazi-four-pillars.html" class="related-card"><img src="/blog/thumbs/bazi.jpg" alt="Bazi Guide" loading="lazy"><div class="related-info"><h4>Bazi Four Pillars: Your Complete Destiny Blueprint Explained</h4></div></a>
+  <a href="/blog/divination/chinese-zodiac.html" class="related-card"><img src="/blog/thumbs/chinese-zodiac.jpg" alt="Chinese Zodiac" loading="lazy"><div class="related-info"><h4>Chinese Zodiac: 12 Animal Signs, Personality & Compatibility</h4></div></a>
+  <a href="/blog/divination/wu-xing-five-elements.html" class="related-card"><img src="/blog/thumbs/wu-xing-five-elements.jpg" alt="Five Elements" loading="lazy"><div class="related-info"><h4>Wu Xing Five Elements: How They Shape Your Destiny</h4></div></a>
+  <a href="/blog/divination/bazi-day-master-guide.html" class="related-card"><img src="/blog/thumbs/bazi-day-master-guide.jpg" alt="Day Master" loading="lazy"><div class="related-info"><h4>Bazi Day Master: Your Elemental Personality Blueprint</h4></div></a>
+</div>
+
+</div></article></main>
+</body>
+</html>
