@@ -94,11 +94,23 @@ footer a{color:var(--gold);text-decoration:none}
 
 <!-- Hero -->
 <div class="hero">
-<p class="date" id="dailyDate">June 13, 2026</p>
+<p class="date" id="dailyDate">June 14, 2026</p>
 <h1>Today's <span class="gold">Oracle</span></h1>
 <p class="subtitle">Eight divine masters convene each dawn — delivering wisdom across Chinese metaphysics for global seekers.</p>
 <div class="masters-row" id="mastersRow">
 <!-- Filled by JS -->
+</div>
+</div>
+
+<!-- Daily Oracle Message -->
+<div class="section" id="dailyMessage" style="text-align:center">
+<div class="card" style="border-color:var(--gold);max-width:700px;margin:0 auto">
+<h3><span>🔮</span>Today's <span class="gold">Message</span></h3>
+<p>Alright, let me tell you about today — Wu Chen day, Earth Dragon sitting on Dragon. You know what that means? It's a day when stubborn meets stubborn, and somehow that works out beautifully.</p>
+<p>Here's the thing. The Triple Horse fire from yesterday is still smoldering, but today the Earth Dragon steps in to contain it. Think of it like this: you've been running hot all week. Today the universe hands you a pause button. Use it.</p>
+<p>The old masters say Wu Chen days carry a particular kind of magic — the Dragon's Earth energy stabilizes whatever chaos the Horse Fire kicked up. So if you started something bold yesterday or Friday, today is when it starts to feel real. Tangible. The idea becomes a plan.</p>
+<p>I've found that Sundays on Dragon days are oddly productive. Not in a grinding way — more like things just click. Conversations go deeper. Hunches pay off. If you've been wrestling with a decision, sit with it this afternoon. The Dragon doesn't rush, but it always knows which way to turn.</p>
+<p>Most people don't realize that Earth Dragon days favor home and family over hustle. Light something nice-smelling. Cook something slow. Call your mom — she's been thinking about you. The qi today flows through domestic spaces like warm water through good tea. Let it steep.</p>
 </div>
 </div>
 
@@ -153,11 +165,11 @@ footer a{color:var(--gold);text-decoration:none}
 
 <!-- Daily Feng Shui Tip -->
 <div class="section">
-<h2>🏠 Daily Feng Shui Tip</h2>
-<p class="byline">Guo Pu guides the flow of qi through your home</p>
+<h2>🍀 Today's Lucky Tip</h2>
+<p class="byline">Guo Pu whispers the day's simplest adjustment</p>
 <div class="card" id="fengshuiCard">
-<h3><span>🔥</span>Ride the Triple Horse: Channeling the San Wu Fire of the South</h3>
-<p>Guo Pu says: On this Fire-dominant day, with the rare and formidable Triple Horse configuration (&#19977;&#21320; — Bing Wu year, Jia Wu month, Wu Wu day), all Heaven's Fire descends upon the South. Turn your gaze to the Li Palace (&#31163;&#23467;) — the sector of illumination, fame, and the middle daughter, ruled by the Li Trigram (&#31163; &#9774;), whose doubled Fire lines blaze with clarity and vision. Today, three Wu branches stack upon one another like stallions thundering in unison. This is the San Wu formation, so potent that even the sages of old would pause before its intensity. The South does not need activating — it is already a furnace. Raw Fire without direction creates chaos: restlessness, quarrels, burnout of the spirit. The art lies not in adding more flame, but in channeling the blaze into focused action. Write a single clear intention on red paper and place it on the southern wall of your workspace. Beside it, set a small dish of coarse salt — Earth in its most humble form. Salt is Earth; Earth controls Fire through the ke cycle (&#22303;&#20811;&#28779;), yet just enough to temper without extinguishing. The red paper captures the Horse's momentum like a bridle on a wild stallion; the salt is the steady hand that guides rather than breaks. If you can attend it safely, light a single candle in this sector for no more than three hours — a small contained flame that harmonizes with the cosmic Fire by kinship, not confrontation. In Western terms: imagine setting your goal under the most powerful spotlight in existence. The Triple Horse is three engines firing at once — without a steering wheel, you merely spin. The red paper is your steering wheel; the salt your brake pedal, a whisper of Earth to keep your wheels on the ground while you accelerate.</p>
+<h3><span>🌿</span>Place Green in the East — <span class="gold">The Dragon's Breath</span></h3>
+<p>Here's a quick one from Guo Pu: today, put something green in the eastern corner of your main room. A plant, a green cloth, even a sticky note — doesn't matter. Why? The east is Wood, and today's Earth Dragon day needs a little Wood to keep the qi moving. Not the raging fire kind of Wood — the gentle kind, like kindling feeding a hearth without exploding. With all the Horse Fire still crackling from yesterday, you want a slow burn today, not a wildfire. A green thing in the east tells the universe: I'm open to growth, but I'm not in a hurry. Try it. Takes thirty seconds. Guo Pu would nod.</p>
 </div></div>
 
 <!-- Face Reading Section -->
@@ -203,7 +215,7 @@ footer a{color:var(--gold);text-decoration:none}
 </footer>
 
 <script>
-// Set today's date dynamically — Saturday, June 13, 2026
+// Set today's date dynamically — Sunday, June 14, 2026
 var d=new Date();
 var dateEl=document.getElementById('dailyDate');
 var baziEl=document.getElementById('baziByline');
@@ -226,20 +238,20 @@ document.getElementById('mastersRow').innerHTML=masters.map(function(m){
 return '<div class="master-badge"><div class="avatar">'+m.emoji+'</div><div class="name"><b>'+m.name+'</b>'+m.title+'</div></div>';
 }).join('');
 
-// FRESH ZODIAC FORTUNES — June 13, 2026
+// FRESH ZODIAC FORTUNES — June 14, 2026
 var zodiacs=[
-{name:'Rat',cn:'鼠',emoji:'🐀',luck:'Good',msg:'The Water Rat scuttles beneath a canopy of twin Suns — what seems reckless at dawn will, by the Hour of the Rooster, reveal itself as the secret path you have been seeking. Let intuition, not calculation, guide your steps.'},
-{name:'Ox',cn:'牛',emoji:'🐂',luck:'Good',msg:'Steady Earth Ox, the Purple Emperor star aligns with your northern gate today: a debt of gratitude long owed to you shall be repaid in the most unexpected currency. The southwest wind carries an old name back into your orbit.'},
-{name:'Tiger',cn:'虎',emoji:'🐅',luck:'Great',msg:'Wood Tiger, the Vermilion Bird dances through your Life Palace — fire meeting wood creates a blaze that illuminates all four directions. Charge the eastern ridge before midday; what you seize by noon will multiply sevenfold before the moon wanes.'},
-{name:'Rabbit',cn:'兔',emoji:'🐇',luck:'Avoid',msg:'Gentle Rabbit, the Seven Killings star cuts across your sky, and the Jade Hare finds no shadow in which to rest. Today, step lightly and speak not of your plans — the walls have ears, and the double-Horse fire scorches the soft grass beneath your feet. Retreat to stillness and wait for kinder stars.'},
-{name:'Dragon',cn:'龙',emoji:'🐉',luck:'Fair',msg:'Celestial Dragon, yesterday\\'s thunder has rolled into distant mountains — today you rest upon the clouds, neither ascending nor descending. A message from the northwest, carried on crane\\'s wings, will arrive at the Hour of the Serpent; heed it, but do not act upon it yet.'},
-{name:'Snake',cn:'蛇',emoji:'🐍',luck:'Great',msg:'Fire Snake, you are the child of this very hour — twin Horse flames make your wisdom burn brighter than a thousand lanterns. In the southeast corner of your dwelling, place a cup of clear water: by dusk, the answer to a question you have carried since the last frost will surface like a pearl from dark depths.'},
-{name:'Horse',cn:'马',emoji:'🐴',luck:'Fair',msg:'Noble Horse, having galloped across the heavens yesterday, today you walk a green pasture in quiet contentment. The blaze that crowned you now warms your back rather than blinding your eyes. An old rival extends an olive branch — take it, for the stars have rewritten old grievances.'},
-{name:'Goat',cn:'羊',emoji:'🐐',luck:'Poor',msg:'Mountain Goat, the punishing Metal star crosses your Wealth sector, and the steep path you climb is strewn with loose stones. Guard your purse and your tongue alike — a careless word spoken at the Hour of the Horse will echo for three full moons. This too shall pass; the mist clears by the fifth watch.'},
-{name:'Monkey',cn:'猴',emoji:'🐒',luck:'Fair',msg:'Clever Monkey, you who danced with great fortune yesterday now finds the cosmic wheel turning. No calamity awaits, but no windfall either — this is a day for mending nets rather than casting them. The peach you seek ripens on a branch you have not noticed yet; look higher, and look westward.'},
-{name:'Rooster',cn:'鸡',emoji:'🐓',luck:'Good',msg:'Golden Rooster, the Celestial Virtue star beams upon your roof: your voice, which has gone unheard in recent councils, will today ring with the clarity of temple bells. Speak your truth at the Hour of the Dragon — the ears that need to hear you are already leaning in from the southern province.'},
-{name:'Dog',cn:'狗',emoji:'🐕',luck:'Poor',msg:'Loyal Dog, you have stepped down from yesterday\\'s lightning storm only to find the path still muddy. The friend you defend may not deserve your shield — the stars whisper of a loyalty misplaced. Keep your counsel until the moon enters her third quarter; then all shall be revealed.'},
-{name:'Pig',cn:'猪',emoji:'🐖',luck:'Great',msg:'Water Pig, blessed child of the Northern Dipper — the raging Fire of these days meets its match in your deep, still waters. An opportunity that arrives dressed as an inconvenience at midday is, in truth, a gift wrapped in dragon scales. Say yes before sunset, and fortune\\'s door swings wide.'}
+{name:'Rat',cn:'鼠',emoji:'🐀',luck:'Great',msg:'Water Rat, listen — today is yours. The Earth Dragon holds your still waters steady, and what felt impossible last week suddenly looks simple. Someone from your past reaches out before noon. Answer. That conversation changes something.'},
+{name:'Ox',cn:'牛',emoji:'🐂',luck:'Good',msg:'Ox, you and the Earth Dragon understand each other. No drama today — just solid ground under your feet. A small task you\'ve been putting off? Finish it before 3 PM. The sense of relief will be bigger than the task itself.'},
+{name:'Tiger',cn:'虎',emoji:'🐅',luck:'Fair',msg:'Wood Tiger, today the Dragon\'s Earth keeps your fire in check. Not a bad thing — you\'ve been burning too hot lately. Read a book. Take a walk. Let someone else lead for once. Tomorrow you roar again.'},
+{name:'Rabbit',cn:'兔',emoji:'🐇',luck:'Good',msg:'Gentle Rabbit, the Earth Dragon gives your Wood roots something to grip. A creative project that stalled last month? Revisit it today. You\'ll see the problem differently. The solution was always there — you just needed softer eyes.'},
+{name:'Dragon',cn:'龙',emoji:'🐉',luck:'Great',msg:'Dragon, it\'s YOUR day. Wu Chen — Earth Dragon on Dragon. Double. The universe gave you the keys. Want to start something? Say something? Change something? Do it before dusk. When the Dragon rides the Dragon, hesitation is the only enemy.'},
+{name:'Snake',cn:'蛇',emoji:'🐍',luck:'Good',msg:'Fire Snake, the Earth Dragon doesn\'t clash with you — it grounds you. An intuition you\'ve been ignoring since Tuesday? Trust it today. Your gut has better reception than your brain right now. Write it down before you talk yourself out of it.'},
+{name:'Horse',cn:'马',emoji:'🐴',luck:'Great',msg:'Horse, you\'ve been running on pure fire. Today the Earth Dragon says: rest, but rest well. A Sunday well-spent is worth more than six weekdays. Cook something new. Call someone who makes you laugh. The race can wait.'},
+{name:'Goat',cn:'羊',emoji:'🐐',luck:'Fair',msg:'Goat, Earth meets Earth today — stable, sure, but maybe a little too quiet. Don\'t mistake stillness for stagnation. Something is brewing beneath the surface. Pay attention to your dreams tonight. Write them down.'},
+{name:'Monkey',cn:'猴',emoji:'🐒',luck:'Good',msg:'Clever Monkey, the Earth Dragon likes your wit but wants you to finish what you start. That half-done thing on your desk? Close it today. The satisfaction of completion will unlock the next idea. One thing. Finish it.'},
+{name:'Rooster',cn:'鸡',emoji:'🐓',luck:'Good',msg:'Rooster, Earth births Metal — and you ARE Metal. Today you shine without trying. Someone notices your work. Accept the compliment gracefully. You\'ve earned it. Don\'t deflect. Just say thank you and let it land.'},
+{name:'Dog',cn:'狗',emoji:'🐕',luck:'Avoid',msg:'Loyal Dog, Chen-Xu clash today — Dragon vs Dog. Not your day to argue, negotiate, or push. Lay low. Pet a dog. Watch a movie. The world will still be there tomorrow, and it\'ll be kinder. Some battles are won by not showing up.'},
+{name:'Pig',cn:'猪',emoji:'🐖',luck:'Great',msg:'Water Pig, your deep still waters nourish the Earth Dragon perfectly. An unexpected windfall — not huge, but meaningful — arrives by evening. A message from the southeast brings news you\'ve been waiting for. Open it immediately.'}
 ];
 
 var luckColors={'Great':'luck-great','Good':'luck-good','Fair':'luck-fair','Poor':'luck-poor','Avoid':'luck-avoid'};
