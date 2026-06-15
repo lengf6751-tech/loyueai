@@ -1,0 +1,12 @@
+# Cloudflare Pages redirects
+# .html URLs → clean URLs (prevents duplicate content)
+/blog/divination/*.html  /blog/divination/:splat  301
+/blog/dream/*.html       /blog/dream/:splat       301
+/*.html                  /:splat                   301
+
+# Return 404 for auto-generated CMS/SPA paths that Google found
+/wp-admin/*               /404.html                 404
+/author/*                 /404.html                 404
+/tag/*                    /404.html                 404
+/category/*               /404.html                 404
+/page/*                   /404.html                 404
