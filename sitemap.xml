@@ -72,6 +72,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://loyueai.com/blog/divination/chinese-lucky-colors</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://loyueai.com/blog/divination/chinese-metaphysics-vs-western</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
@@ -454,6 +460,12 @@
     <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://loyueai.com/blog/dream/dream-cheating</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://loyueai.com/blog/dream/dream-dead</loc>
