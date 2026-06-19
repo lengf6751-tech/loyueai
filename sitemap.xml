@@ -654,6 +654,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://loyueai.com/blog/dream/dream-food</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loyueai.com/blog/divination/face-reading-shapes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://loyueai.com/blog/divination/wu-xing-personality.html</loc>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
