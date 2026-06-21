@@ -4,6 +4,12 @@
 /blog/dream/*.html       /blog/dream/:splat       301
 /*.html                  /:splat                   301
 
+# Short URLs → canonical paths
+/privacy                  /privacy-policy           301
+/privacy/                 /privacy-policy           301
+/contact/                 /contact                  301
+/about/                   /about                    301
+
 # Return 404 for auto-generated CMS/SPA paths that Google found
 /wp-admin/*               /404.html                 404
 /author/*                 /404.html                 404
