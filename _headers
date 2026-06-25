@@ -4,11 +4,14 @@
 /videos/zhangdaoling.mp4
   Cache-Control: no-cache, no-store, must-revalidate
 
+*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
 /blog/*
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=3600
 
 /*
   X-Frame-Options: SAMEORIGIN
