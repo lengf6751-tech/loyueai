@@ -30,6 +30,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://loyueai.com/blog/divination/bazi-ten-gods</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://loyueai.com/blog/divination/bazi-calculator-guide</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -343,6 +349,12 @@
   <url>
     <loc>https://loyueai.com/blog/divination/palm-reading-lines-guide</loc>
     <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://loyueai.com/blog/divination/plum-blossom-i-ching</loc>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
