@@ -239,7 +239,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loyueai.com/blog/divination/face-reading-guide.html</loc>
+    <loc>https://loyueai.com/blog/divination/face-reading-guide</loc>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -629,7 +629,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loyueai.com/blog/dream/snake-dream-meaning.html</loc>
+    <loc>https://loyueai.com/blog/dream/snake-dream-meaning</loc>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -706,7 +706,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://loyueai.com/blog/dream/dream-bugs-spiders.html</loc>
+    <loc>https://loyueai.com/blog/dream/dream-bugs-spiders</loc>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -722,7 +722,25 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://loyueai.com/blog/divination/wu-xing-personality.html</loc>
+    <loc>https://loyueai.com/blog/divination/wu-xing-personality</loc>
+  <url>
+    <loc>https://loyueai.com/blog/divination/liuyao-six-lines-divination</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://loyueai.com/blog/divination/palm-mounts-nine-mountains</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://loyueai.com/blog/dream/dream-ancestors</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
